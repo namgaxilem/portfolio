@@ -1,0 +1,55 @@
+@media only screen and (max-width: 775px) {
+  .title-1 {
+    top: 50%;
+    margin-left: 5%;
+    transform: translateY(-50%);
+    letter-spacing: 0.2em;
+  
+    h1 {
+      font-size: 5em;
+    }
+  
+    p {
+      line-height: 2;
+      font-size: 0.8em;
+    }
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .title-1 {
+    top: auto;
+    bottom: 0;
+    margin-left: 10%;
+    transform: translateY(-50%);
+    letter-spacing: 0.2em;
+  
+    h1 {
+      font-size: 3em;
+    }
+  
+    p {
+      line-height: 2;
+      font-size: 0.8em;
+    }
+  }
+
+  .title-2 {
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    transform: translateY(-50%);
+    color: rgb(232,212,0);
+    font-size: 1.2rem;
+  }
+  
+  .title-2-img {
+    width: 80%;
+    height: 50%;
+    right: 10%;
+    top: 40%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    cursor: pointer;
+  }
+}
