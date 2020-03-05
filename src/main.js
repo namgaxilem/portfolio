@@ -2,17 +2,20 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
+import 'bootstrap';
+import BootstrapVue from 'bootstrap-vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { dom } from '@fortawesome/fontawesome-svg-core';
 import { far } from '@fortawesome/free-regular-svg-icons';
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 import Main from './components/Main.vue';
 import Detail from './components/content/Detail.vue';
 
-Vue.use(VueRouter)
+Vue.use(BootstrapVue);
+Vue.use(VueRouter);
 
 library.add(fas, far, faFacebook, faInstagram);
 dom.watch();
@@ -41,7 +44,9 @@ const router = new VueRouter({
 new Vue({
   router,
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');
 
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/css/app.scss';
 import './assets/css/app_mobile.scss';

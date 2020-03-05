@@ -52,7 +52,7 @@ body {
 }
 
 #app {
-  font-family: "Palatino Linotype", "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Arial, "Palatino Linotype", "Avenir", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

@@ -18,6 +18,5 @@ export default {
   position: absolute;
   top: 100%;
   width: 100%;
-  background: red;
 }
 </style>
