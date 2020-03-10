@@ -8,12 +8,14 @@
         @click="openMenu"
       />
       <a 
+        class=""
         href="https://www.instagram.com/nam_ndn97/"
         target="_blank"
       >
         <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" />
       </a>
       <a
+        class=""
         href="https://facebook.com/namgaxilem"
         target="_blank"
       >
@@ -197,9 +199,33 @@ export default {
   }
 }
 
+@media only screen and (max-width: 570px) { 
+ .header-slide {
+    a {
+      font-size: 3.5rem;
+      &:hover .line-hover {
+        width: 100%;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 414px) {
   .header {
     padding: 1em 1em 0 1em;
+
+    .logo a {
+      display: none;
+    }
+  }
+
+  .header-slide {
+    a {
+      font-size: 2rem;
+      &:hover .line-hover {
+        width: 100%;
+      }
+    }
   }
 }
 </style>
