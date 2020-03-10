@@ -65,6 +65,7 @@ export default {
   color: #fff;
   cursor: pointer;
   overflow: hidden;
+  z-index: 100;
 }
 
 .back-button {
@@ -83,6 +84,16 @@ export default {
   transform: translateX(0);
   animation: hideBackButtonAnimation 0.6s ease;
   animation-fill-mode: both;
+}
+
+@media only screen and (max-width: 400px) { 
+  #back-button {
+    top: 3.6em;
+  }
+
+  .back-button {
+    font-size: 70px;
+  }
 }
 
 @keyframes displayBackButtonAnimation {

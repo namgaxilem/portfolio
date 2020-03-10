@@ -4,52 +4,48 @@
       <b-col
         lg="5"
         md="12"
-        class="title"
+        
       >
-        <span class="number">
-          01
-        </span>
-        WHO AM I
+        <div class="title">
+          <span class="number">
+            01
+          </span>
+          WHO AM I
+        </div>
       </b-col>
       <b-col
         lg="7"
         md="12"
       >
         <b-container>
-          <p>
-            1992年、沖縄県生まれ。大学を卒業後、県内の制作会社でDTPオペレーターとして就職後、
-            大手紳士服量販店を中心に十数社のコーポレートサイトの運用業務を担当しました。
-            2017年より、個人でもWebデザイナーとしての活動を開始し、写真撮影・デザイン・
-            コーディングまでワンストップで対応しています。
+          <p
+            class="m-0"
+            style="
+              letter-spacing: 0.3em;
+              font-weight: bold;"> 
+            Nguyễn Đức
+          </p>
+          <p
+            style="
+              letter-spacing: 0.3em;
+              font-weight: bold;">  
+            Nam
+          </p>
+          <p
+           style="width: 100%; max-width: 500px">
+            Sinh ra và lớn lên ở Sài Gòn, sau khi ăn bám gia đình 22 năm, tôi đã tìm được công việc ở công ty TMA Solution với vị trí kỹ 
+            sư lập trình web. 
+            <br />
+            Ngay từ khi tìm hiểu về lập trình, tôi đã định hướng ngay web là hướng phát triển của mình, và sẽ thật thiếu sót nếu một 
+            lập trình viên web lại không làm một website để giới thiệu bản thân mình.
+            <br />
+            
           </p>
           <img
             src="@/assets/image/image-1.png"
             alt="image"
             style="width: 100%; max-width: 500px"
           >
-        </b-container>
-      </b-col>
-    </b-row>
-    <b-row class="section">
-      <b-col
-        lg="5"
-        md="12"
-        class="title"
-      >
-        <span class="number">
-          01
-        </span>
-        WHO AM I
-      </b-col>
-      <b-col
-        lg="7"
-        md="12"
-      >
-        <b-container>
-          1992年、沖縄県生まれ。大学を卒業後、県内の制作会社でDTPオペレーターとして就職後、
-          大手紳士服量販店を中心に十数社のコーポレートサイトの運用業務を担当しました。
-          2017年より、個人でもWebデザイナーとしての活動を開始し、写真撮影・デザイン・
-          コーディングまでワンストップで対応しています。
         </b-container>
       </b-col>
     </b-row>
@@ -150,6 +146,9 @@ export default {
   display: flex;
   align-content: center;
   align-items: center;
+  position: relative;
+  color: #072142;
+  letter-spacing: 0.2em;
 
   &::after {
     content: "";
@@ -175,7 +174,8 @@ export default {
   }
 
   .title {
-    font-size: 1.5em; 
+    font-size: 1.5em;
+    margin-bottom: 1em;
   }
 }
 </style>
