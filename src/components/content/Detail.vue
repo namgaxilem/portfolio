@@ -15,8 +15,9 @@ export default {
 
 <style lang="scss">
 #detail {
-  position: absolute;
+  position: relative;
   top: 100%;
   width: 100%;
+  background: #fff;
 }
 </style>

@@ -2,7 +2,14 @@
   <div
     ref="pageFour"
     class="page-four page-wraper"
-    :class="{ 'top-300': initialPos === 1, 'top-200': initialPos === 2, 'top-100': initialPos === 3, 'top-0': initialPos === 4 }"
+    :class="{ 
+      'top-300': initialPos === 1, 
+      'top-200': initialPos === 2, 
+      'top-100': initialPos === 3, 
+      'top-0': initialPos === 4,
+      'position-relative': $route.name === 'detail',
+      'position-absolute': $route.name !== 'detail'
+    }"
   >
     <div class="title-1">
       <h1 ref="title-text">

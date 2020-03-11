@@ -4,7 +4,6 @@
       <b-col
         lg="5"
         md="12"
-        
       >
         <div class="title">
           <span class="number">

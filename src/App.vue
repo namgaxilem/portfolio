@@ -2,10 +2,13 @@
   <div
     id="app"
     ref="app"
-    :class="{ 'view-detail': $route.name === 'detail' }"
+    :class="{ 
+      'view-detail': $route.name === 'detail',
+      'height-100vh': $route.name !== 'detail',
+    }"
   >
     <router-view />
-    <div class="pre-load" />
+    <!-- <div class="pre-load" /> -->
   </div>
 </template>
 
@@ -16,8 +19,7 @@ export default {
   watch: {
     $route(to) {
       if (to.name === "detail") {
-        this.$refs.app.style.overflow = "visible";
-        document.getElementsByTagName("BODY")[0].style.overflowX = "hidden";
+        this.$refs.app.style.overflow = "hidden visible";
       } else {
         this.$refs.app.style.overflow = "hidden";
       }
@@ -25,8 +27,7 @@ export default {
   },
   mounted() {
     if (this.$route.name === "detail") {
-      this.$refs.app.style.overflow = "visible";
-      document.getElementsByTagName("BODY")[0].style.overflowX = "hidden";
+      this.$refs.app.style.overflow = "hidden visible";
     } else {
       this.$refs.app.style.overflow = "hidden";
     }
@@ -39,16 +40,10 @@ export default {
   box-sizing: border-box;
 }
 
-html {
-  width: 100vw;
-  height: 100vh;
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 #app {
@@ -57,7 +52,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   width: 100%;
-  height: 100%;
   position: relative;
   background-image: linear-gradient(to right, rgb(8, 1, 32), rgb(10, 2, 56));
   transition: background-image 0.6s;

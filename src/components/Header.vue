@@ -1,7 +1,14 @@
 <template>
-  <header class="header">
+  <header 
+    :style="{ color: isViewingDetail ? 'black': 'white' }"
+    class="header" 
+    :class="{ 'is-viewing-detail': isViewingDetail }"
+  >
     <a class="brand">Nam Nguyen</a>
-    <div class="logo">
+    <div 
+      class="logo"
+      :class="{ 'is-viewing-detail': isViewingDetail }"
+    >
       <div
         class="button-open-menu"
         :class="isOpenMenu ? 'open-menu' : ''"
@@ -59,12 +66,31 @@ export default {
   name: "Header",
   data() {
     return {
-      isOpenMenu: false
+      isOpenMenu: false,
+      window: {
+        innerHeight: 0,
+        pageYOffset: 0
+      }
     };
+  },
+  computed: {
+    isViewingDetail() {
+      return this.window.innerHeight < this.window.pageYOffset;
+    }
+  },
+  created() {
+    window.addEventListener('scroll', this.scroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scroll);
   },
   methods: {
     openMenu() {
       this.isOpenMenu = !this.isOpenMenu;
+    },
+    scroll() {
+      this.window.innerHeight = window.innerHeight;
+      this.window.pageYOffset = window.pageYOffset;
     }
   }
 };
@@ -80,6 +106,7 @@ export default {
   font-size: 1.6rem;
   color: #fff;
   z-index: 100;
+  transition: color 0.4s;
 }
 
 .brand {
@@ -99,6 +126,7 @@ export default {
     align-content: center;
     color: #fff;
     z-index: 100;
+    transition: color 0.4s;
   }
 
   .button-open-menu {
@@ -213,6 +241,7 @@ export default {
 @media only screen and (max-width: 414px) {
   .header {
     padding: 1em 1em 0 1em;
+    font-size: 1rem;
 
     .logo a {
       display: none;
@@ -224,6 +253,26 @@ export default {
       font-size: 2rem;
       &:hover .line-hover {
         width: 100%;
+      }
+    }
+  }
+}
+
+header.is-viewing-detail {
+  color: black;
+
+  .logo {
+    * {
+      color: black;
+    }
+
+    .button-open-menu {
+      &::after {
+        background: black;
+      }
+
+      &::before {
+        background: black;
       }
     }
   }

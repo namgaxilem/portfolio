@@ -2,7 +2,15 @@
   <div
     ref="pageTwo"
     class="page-two page-wraper"
-    :class="{ 'top-100': initialPos === 1, 'top-0': initialPos === 2, 'top--100': initialPos === 3, 'top--200': initialPos === 4 }"
+    :class="{ 
+      'top-100': initialPos === 1, 
+      'top-0': initialPos === 2, 
+      'top--100': initialPos === 3,
+      'top--200': initialPos === 4,
+      'position-relative': $route.name === 'detail',
+      'position-absolute': $route.name !== 'detail',
+      'height-100vh': $route.name === 'detail'
+    }"
   >
     <div class="title-1">
       <h1 ref="title-text">

@@ -2,7 +2,14 @@
   <div
     ref="pageThree"
     class="page-three page-wraper"
-    :class="{ 'top-200': initialPos === 1, 'top-100': initialPos === 2, 'top-0': initialPos === 3, 'top--100': initialPos === 4 }"
+    :class="{ 
+      'top-200': initialPos === 1, 
+      'top-100': initialPos === 2, 
+      'top-0': initialPos === 3, 
+      'top--100': initialPos === 4,
+      'position-relative': $route.name === 'detail',
+      'position-absolute': $route.name !== 'detail'
+    }"
   >
     <div class="title-1">
       <h1 ref="title-text">My projects</h1>

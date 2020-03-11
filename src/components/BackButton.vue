@@ -1,5 +1,8 @@
 <template>
-  <div id="back-button">
+  <div
+    id="back-button"
+    :class="{'is-viewing-detail': isViewingDetail}"
+  >
     <span
       ref="backButton"
       class="back-button"
@@ -16,10 +19,18 @@ export default {
   data() {
     return {
       window: {
-        scrollY: 0
+        scrollY: 0,
+        innerHeight: 0,
+        pageYOffset: 0
       },
+      backButtonViewportOffset: 0,
       isBackingToMainPage: false
     };
+  },
+  computed: {
+    isViewingDetail() {
+      return this.window.innerHeight < (this.window.pageYOffset + this.backButtonViewportOffset);
+    }
   },
   watch: {
     'window.scrollY'(val) {
@@ -30,11 +41,20 @@ export default {
     }
   },
   mounted() {
-    this.$refs.backButton.classList.add('display-back-button'); 
+    this.$refs.backButton.classList.add('display-back-button');
+    this.resize();
   },
   created() {
     window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.scroll);
+    window.addEventListener('resize', this.resize);
+    this.scroll();
     this.handleScroll();
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', this.scroll);
+    window.removeEventListener('resize', this.resize);
   },
   methods: {
     backToMainPage() {
@@ -52,6 +72,14 @@ export default {
     },
     handleScroll() {
       this.window.scrollY = window.scrollY;
+    },
+    scroll() { 
+      this.window.innerHeight = window.innerHeight;
+      this.window.pageYOffset = window.pageYOffset;
+    },
+    resize() {
+      let viewportOffset = this.$refs.backButton.getBoundingClientRect();
+      this.backButtonViewportOffset = viewportOffset.top;
     }
   }
 };
@@ -65,7 +93,8 @@ export default {
   color: #fff;
   cursor: pointer;
   overflow: hidden;
-  z-index: 100;
+  z-index: 98;
+  transition: color 0.4s;
 }
 
 .back-button {
@@ -88,11 +117,12 @@ export default {
 
 @media only screen and (max-width: 400px) { 
   #back-button {
-    top: 3.6em;
+    top: 2em;
+    left: 1em;
   }
 
   .back-button {
-    font-size: 70px;
+    font-size: 60px;
   }
 }
 
@@ -106,5 +136,9 @@ export default {
   100% {
     transform: translateX(-100%);
   }
+}
+
+#back-button.is-viewing-detail .back-button {
+  color: black;
 }
 </style>
