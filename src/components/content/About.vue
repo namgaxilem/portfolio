@@ -31,19 +31,29 @@
             Nam
           </p>
           <p
-           style="width: 100%; max-width: 500px">
+            style="width: 100%; max-width: 500px">
             Sinh ra và lớn lên ở Sài Gòn, sau khi ăn bám gia đình 22 năm, tôi đã tìm được công việc ở công ty TMA Solution với vị trí kỹ 
             sư lập trình web. 
-            <br />
-            Ngay từ khi tìm hiểu về lập trình, tôi đã định hướng ngay web là hướng phát triển của mình, và sẽ thật thiếu sót nếu một 
-            lập trình viên web lại không làm một website để giới thiệu bản thân mình.
-            <br />
-            
+            <br>
+            Ngay từ khi tìm hiểu về lập trình, tôi đã định hướng ngay web là hướng phát triển của mình.
+            <br>
+            Website này lấy ý tưởng thiết kế từ 
+            <a 
+              href="https://kuon.space/" 
+              target="_blank">Kuon Yagi
+            </a>, một nhà thiết kế và lập trình
+            website đến từ Nhật Bản.
+            <br>  
           </p>
           <img
             src="@/assets/image/image-1.png"
             alt="image"
-            style="width: 100%; max-width: 500px"
+            style="
+              width: 100%; 
+              max-width: 500px; 
+              box-shadow: 0px 50px 90px -20px rgba(7, 33, 66, 0.5);
+              margin-bottom: 2em;
+            "
           >
         </b-container>
       </b-col>
@@ -167,7 +177,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   .section {
     padding-top: 3em;
   }

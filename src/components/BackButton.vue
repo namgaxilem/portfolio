@@ -115,7 +115,7 @@ export default {
   animation-fill-mode: both;
 }
 
-@media only screen and (max-width: 400px) { 
+@media only screen and (max-width: 500px) { 
   #back-button {
     top: 2em;
     left: 1em;

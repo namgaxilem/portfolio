@@ -238,7 +238,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 500px) {
   .header {
     padding: 1em 1em 0 1em;
     font-size: 1rem;
