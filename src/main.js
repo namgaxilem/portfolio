@@ -50,3 +50,4 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/css/app.scss';
 import './assets/css/app_mobile.scss';
+import './assets/css/animate.css';

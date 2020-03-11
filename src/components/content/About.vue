@@ -60,70 +60,45 @@
     </b-row>
     <b-row class="section">
       <b-col
-        lg="5"
-        md="12"
-        class="title"
+        cols="12"
       >
-        <span class="number">
-          01
-        </span>
-        WHO AM I
+        <div class="title">
+          <span class="number">
+            02
+          </span>
+          Education and Certifications
+        </div>
       </b-col>
       <b-col
-        lg="7"
-        md="12"
+        cols="12"
       >
         <b-container>
-          1992年、沖縄県生まれ。大学を卒業後、県内の制作会社でDTPオペレーターとして就職後、
-          大手紳士服量販店を中心に十数社のコーポレートサイトの運用業務を担当しました。
-          2017年より、個人でもWebデザイナーとしての活動を開始し、写真撮影・デザイン・
-          コーディングまでワンストップで対応しています。
-        </b-container>
-      </b-col>
-    </b-row>
-    <b-row class="section">
-      <b-col
-        lg="5"
-        md="12"
-        class="title"
-      >
-        <span class="number">
-          01
-        </span>
-        WHO AM I
-      </b-col>
-      <b-col
-        lg="7"
-        md="12"
-      >
-        <b-container>
-          1992年、沖縄県生まれ。大学を卒業後、県内の制作会社でDTPオペレーターとして就職後、
-          大手紳士服量販店を中心に十数社のコーポレートサイトの運用業務を担当しました。
-          2017年より、個人でもWebデザイナーとしての活動を開始し、写真撮影・デザイン・
-          コーディングまでワンストップで対応しています。
-        </b-container>
-      </b-col>
-    </b-row>
-    <b-row class="section">
-      <b-col
-        lg="5"
-        md="12"
-        class="title"
-      >
-        <span class="number">
-          01
-        </span>
-        WHO AM I
-      </b-col>
-      <b-col
-        lg="7"
-        md="12"
-      >
-        <b-container>
-          1992年、沖縄県生まれ。大学を卒業後、県内の制作会社でDTPオペレーターとして就職後、
-          大手紳士服量販店を中心に十数社のコーポレートサイトの運用業務を担当しました。
-          2017年より、個人でもWebデザイナーとしての活動を開始し、写真撮影・デザイン・
-          コーディングまでワンストップで対応しています。
+          <b-row class="section">
+            <b-col
+              lg="4"
+              md="12"
+            > 
+              <section class="wow slideInRight" data-wow-duration="2s" data-wow-delay="0s">
+                <div style="background: red; width: 200px; height: 200px; border-radius: 50%"> </div>
+              </section>
+            </b-col>
+            <b-col
+              lg="4"
+              md="12"
+            > 
+              <section class="wow slideInRight" data-wow-duration="2s" data-wow-delay="0s">
+                <div style="background: red; width: 200px; height: 200px; border-radius: 50%"> </div>
+              </section>
+            </b-col>
+            <b-col
+              lg="4"
+              md="12"
+            > 
+              <section class="wow slideInRight" data-wow-duration="2s" data-wow-delay="0s">
+                <div style="background: red; width: 200px; height: 200px; border-radius: 50%"> </div>
+              </section>
+            </b-col>
+          </b-row>
         </b-container>
       </b-col>
     </b-row>
@@ -131,6 +106,8 @@
 </template>
 
 <script>
+import WOW from 'wow.js'
+
 /* eslint-disable */
 export default {
   name: "About",
@@ -139,8 +116,9 @@ export default {
       state: {}
     };
   },
-  method: {},
-  mounted() {}
+  created() {
+    new WOW().init();
+  }
 };
 </script>
 
