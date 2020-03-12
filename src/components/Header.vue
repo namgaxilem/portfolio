@@ -1,13 +1,13 @@
 <template>
   <header 
-    :style="{ color: isViewingDetail ? 'black': 'white' }"
+    :style="{ color: isOpenMenu ? 'white' : isScrollingToDetail ? 'black': 'white' }"
     class="header" 
-    :class="{ 'is-viewing-detail': isViewingDetail }"
+    :class="{ 'is-viewing-detail': isScrollingToDetail }"
   >
     <a class="brand">Nam Nguyen</a>
     <div 
       class="logo"
-      :class="{ 'is-viewing-detail': isViewingDetail }"
+      :class="{ 'is-viewing-detail': isOpenMenu ? false : isScrollingToDetail }"
     >
       <div
         class="button-open-menu"
@@ -35,7 +35,7 @@
     >
       <div href="#">
         <a href="#">
-          home
+          <div>home</div>
           <div class="line-hover" />
         </a>
       </div>
@@ -74,7 +74,7 @@ export default {
     };
   },
   computed: {
-    isViewingDetail() {
+    isScrollingToDetail() {
       return this.window.innerHeight < this.window.pageYOffset;
     }
   },
@@ -99,7 +99,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .header {
-  padding: 2em 1em 0 1em;
+  padding: 1.5em 1em 0 1em;
   display: flex;
   position: fixed;
   width: 100%;
@@ -112,6 +112,12 @@ export default {
 .brand {
   letter-spacing: 0.1em;
   z-index: 100;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    color: grey;
+  }
 }
 
 .logo {
@@ -127,6 +133,10 @@ export default {
     color: #fff;
     z-index: 100;
     transition: color 0.4s;
+
+    &:hover * {
+      color: grey;
+    }
   }
 
   .button-open-menu {
@@ -136,6 +146,7 @@ export default {
     height: 100%;
     cursor: pointer;
     z-index: 100;
+    margin-left: 25px;
 
     &:before {
       content: "";
@@ -179,7 +190,7 @@ export default {
   transform: translateY(-100%);
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(to right, purple, pink);
+  background-image: linear-gradient(to right, #072142, #8c2b7a 42%, #ff4d5a);
   transition: transform 0.5s;
   display: flex;
   flex-direction: column;
@@ -218,22 +229,18 @@ export default {
 
   .line-hover {
     height: 5px;
-    width: 0;
+    width: 100%;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     background: #fff;
     transition: width 0.3s;
+    transform: translateY(-50%);
   }
 }
-
-@media only screen and (max-width: 570px) { 
+@media only screen and (max-width: 680px) { 
  .header-slide {
     a {
-      font-size: 3.5rem;
-      &:hover .line-hover {
-        width: 100%;
-      }
+      font-size: 2rem;
     }
   }
 }
@@ -264,6 +271,10 @@ header.is-viewing-detail {
   .logo {
     * {
       color: black;
+
+      &:hover {
+        color: grey;
+      }
     }
 
     .button-open-menu {
