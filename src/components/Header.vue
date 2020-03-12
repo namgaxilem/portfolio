@@ -2,12 +2,11 @@
   <header 
     :style="{ color: isOpenMenu ? 'white' : isScrollingToDetail ? 'black': 'white' }"
     class="header" 
-    :class="{ 'is-viewing-detail': isScrollingToDetail }"
+    :class="{ 'is-viewing-detail': isOpenMenu ? false : isScrollingToDetail }"
   >
     <a class="brand">Nam Nguyen</a>
     <div 
       class="logo"
-      :class="{ 'is-viewing-detail': isOpenMenu ? false : isScrollingToDetail }"
     >
       <div
         class="button-open-menu"
@@ -113,7 +112,6 @@ export default {
   letter-spacing: 0.1em;
   z-index: 100;
   cursor: pointer;
-  transition: 0.3s;
 
   &:hover {
     color: grey;
@@ -201,8 +199,12 @@ export default {
     transform: translateY(0);
 
     a {
-      height: 90px;
+      height: 100%;
       transform: translateY(0);
+
+      &>div {
+        display: flex;
+      }
     }
   }
 
@@ -216,7 +218,8 @@ export default {
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 5rem;
+    font-size: 4.5rem;
+    letter-spacing: 0.2em;
     display: inline-block;
     transition: transform 0.5s;
     transition-delay: 0.35s;
@@ -229,7 +232,7 @@ export default {
 
   .line-hover {
     height: 5px;
-    width: 100%;
+    width: 0%;
     position: absolute;
     top: 50%;
     background: #fff;

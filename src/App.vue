@@ -53,7 +53,7 @@ body {
   color: #2c3e50;
   width: 100%;
   position: relative;
-  background-image: linear-gradient(to right, rgb(8, 1, 32), rgb(10, 2, 56));
+  background-image: linear-gradient(to bottom, rgb(6,32,63), rgb(3,12,23));
   transition: background-image 0.6s;
 
   &.view-detail {
