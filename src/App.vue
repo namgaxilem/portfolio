@@ -7,15 +7,20 @@
       'height-100vh': $route.name !== 'detail',
     }"
   >
+    <Moon />
     <router-view />
     <!-- <div class="pre-load" /> -->
   </div>
 </template>
 
 <script>
+import Moon from './components/Moon.vue';
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    Moon
+  },
   watch: {
     $route(to) {
       if (to.name === "detail") {
