@@ -32,26 +32,26 @@
       class="header-slide"
       :class="isOpenMenu ? 'active' : ''"
     >
-      <div href="#">
-        <a href="#">
+      <div @click="linkTo('home')">
+        <a>
           <div>home</div>
           <div class="line-hover" />
         </a>
       </div>
-      <div href="#">
-        <a href="#">
+      <div @click="linkTo('about')">
+        <a>
           about me
           <div class="line-hover" />
         </a>
       </div>
-      <div href="#">
-        <a href="#">
+      <div @click="linkTo('projects')">
+        <a>
           my projects
           <div class="line-hover" />
         </a>
       </div>
-      <div href="#">
-        <a href="#">
+      <div @click="linkTo('friends')">
+        <a>
           my friends
           <div class="line-hover" />
         </a>
@@ -90,6 +90,21 @@ export default {
     scroll() {
       this.window.innerHeight = window.innerHeight;
       this.window.pageYOffset = window.pageYOffset;
+    },
+    linkTo(val) {
+      if (val === 'home') {
+        this.$router.push({ name: "main", params: { id: "" } });
+      }
+      else if (val === 'about') {
+        this.$router.push({ name: "main", params: { id: "about" } });
+      }
+      else if (val === 'friends') {
+        this.$router.push({ name: "main", params: { id: "friends" } });
+      }
+      else if (val === 'projects') {
+        this.$router.push({ name: "main", params: { id: "projects" } });
+      }
+      this.openMenu();
     }
   }
 };
@@ -224,6 +239,7 @@ export default {
     transition: transform 0.5s;
     transition-delay: 0.35s;
     transform: translateY(100%);
+    cursor: pointer;
 
     &:hover .line-hover {
       width: 100%;

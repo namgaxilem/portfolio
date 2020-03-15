@@ -16,7 +16,7 @@
   }
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 500px) {
   .title-1 {
     top: auto;
     bottom: 0;
@@ -40,7 +40,10 @@
     top: 30%;
     transform: translateY(-50%);
     color: #FF4D5A;
-    font-size: 1.2rem;
+
+    h1 {
+      font-size: 0.5em;
+    }
   }
   
   .title-2-img {

@@ -9,6 +9,7 @@
       @changeSlide="changeSlide"
       @changeNav="changeNav"
     />
+    <ScrolldownLabel :display="$route.name === 'detail' || ($route.name === 'main' && $route.path === '/')" />
     <PageOne
       v-if="!isViewDetail"
       :transform="state.transformPage1"
@@ -57,6 +58,7 @@ import PageTwo from "./PageTwo.vue";
 import PageThree from "./PageThree.vue";
 import PageFour from "./PageFour.vue";
 import BackButton from "./BackButton.vue";
+import ScrolldownLabel from "./ScrolldownLabel.vue";
 
 export default {
   name: "Main",
@@ -67,7 +69,8 @@ export default {
     PageTwo,
     PageThree,
     PageFour,
-    BackButton
+    BackButton,
+    ScrolldownLabel
   },
   data() {
     return {

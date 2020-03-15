@@ -15,6 +15,9 @@
       <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
       <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
       <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
+      <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
+      <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
+      <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
     </svg>
   </div>
 </template>
@@ -35,9 +38,9 @@ export default {
   computed: {
     viewBox() {
       if (this.window.width <= 500) {
-        return '15 50 70 70';
+        return '0 0 100 100';
       } else {
-        return '-25 10 100 100'; 
+        return '0 0 100 100';
       }
     }
   },
@@ -76,6 +79,10 @@ export default {
   opacity: 0.6;
 }
 
+svg {
+  height: 100%;
+  width: 100%;
+}
 @media only screen and (max-width: 500px) {
   .moon {
   }

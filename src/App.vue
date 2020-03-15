@@ -7,9 +7,9 @@
       'height-100vh': $route.name !== 'detail',
     }"
   >
-    <Moon />
+    <Moon v-if="$route.name !== 'detail'" />
     <router-view />
-    <!-- <div class="pre-load" /> -->
+    <div class="pre-load" />
   </div>
 </template>
 
@@ -52,7 +52,7 @@ body {
 }
 
 #app {
-  font-family: Arial, "Palatino Linotype", "Avenir", Helvetica, sans-serif;
+  font-family: Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
@@ -60,6 +60,7 @@ body {
   position: relative;
   background-image: linear-gradient(to bottom, rgb(6,32,63), rgb(3,12,23));
   transition: background-image 0.6s;
+  overflow: hidden;
 
   &.view-detail {
     background-image: linear-gradient(to right, black, black);
@@ -68,20 +69,17 @@ body {
 
 .pre-load {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
   z-index: 1000;
   background: black;
   animation: preload 1.2s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 @keyframes preload {
-  from {
-    transform: translateY(0);
-  }
-
   to {
     transform: translateY(-100%);
   }

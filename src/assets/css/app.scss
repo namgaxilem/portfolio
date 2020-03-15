@@ -63,7 +63,14 @@
   top: 50%;
   transform: translateY(-50%);
   color: #FF4D5A;
-  font-size: 2rem;
+  font-size: 4.4rem;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  text-shadow: 0 10px 15px rgba(2, 11, 22, 0.2);
+
+  h1 {
+    font-size: 4.5rem;
+  }
 }
 
 .title-2-img {
