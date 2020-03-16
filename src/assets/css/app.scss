@@ -67,9 +67,24 @@
   letter-spacing: 0.1em;
   font-weight: bold;
   text-shadow: 0 10px 15px rgba(2, 11, 22, 0.2);
+  z-index: 10;
 
   h1 {
     font-size: 4.5rem;
+    text-shadow: 0 10px 15px rgba(2, 11, 22, 0.2);
+  }
+}
+
+.title-2-cloud {
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9;
+
+  svg {
+    height: 100%;
+    width: 100%;
   }
 }
 

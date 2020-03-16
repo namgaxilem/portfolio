@@ -2,7 +2,7 @@
   <div class="moon">
     <svg 
       xmlns="http://www.w3.org/2000/svg"
-      :viewBox="viewBox" 
+      viewBox="0 0 100 100" 
     >
       <circle cx="50" cy="50" r="60" fill="#142A47" />
       <circle cx="50" cy="50" r="55" fill="#1F3550" />
@@ -10,6 +10,9 @@
       <circle cx="50" cy="50" r="45" fill="#354962" />
       <circle cx="50" cy="50" r="40" fill="#3F5268" />
 
+      <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
+      <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
+      <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
       <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
       <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
       <circle :cx="Math.random() * 100" :cy="Math.random() * 100" r="0.3" fill="white" />
@@ -34,15 +37,6 @@ export default {
       },
       screenPC: false
     };
-  },
-  computed: {
-    viewBox() {
-      if (this.window.width <= 500) {
-        return '0 0 100 100';
-      } else {
-        return '0 0 100 100';
-      }
-    }
   },
   methods: {
     handleResize() {
@@ -82,9 +76,5 @@ export default {
 svg {
   height: 100%;
   width: 100%;
-}
-@media only screen and (max-width: 500px) {
-  .moon {
-  }
 }
 </style>
