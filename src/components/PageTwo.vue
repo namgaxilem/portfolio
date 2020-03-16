@@ -84,7 +84,7 @@ export default {
         val.toString()
       );
     },
-    setIsTransforming (val) { 
+    setIsTransforming (val) {
       this.isTransforming = val;
     },
     removeAnimation() {

@@ -92,6 +92,7 @@ export default {
       this.window.pageYOffset = window.pageYOffset;
     },
     linkTo(val) {
+      this.$emit('headerLinkTo', val);
       if (val === 'home') {
         this.$router.push({ name: "main", params: { id: "" } });
       }

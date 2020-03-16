@@ -52,6 +52,11 @@
     top: 30%;
     transform: translateY(-50%);
     color: #FF4D5A;
+
+    svg {
+      width: 100%;
+      opacity: 0.4;
+    }
   }
   
   .title-2-img {

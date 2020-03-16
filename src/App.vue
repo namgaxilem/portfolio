@@ -41,6 +41,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Arima+Madurai:300');
+
 * {
   box-sizing: border-box;
 }
@@ -52,7 +54,7 @@ body {
 }
 
 #app {
-  font-family: Arial;
+  font-family: 'Arima Madurai', Arial, cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

@@ -1,15 +1,22 @@
 <template>
   <div id="detail">
-    <About />
+    <About v-if="route === 'about'" />
+    <Friends v-if="route === 'friends'" />
   </div>
 </template>
 
 <script>
 import About from '@/components/content/About.vue';
+import Friends from '@/components/content/Friends.vue';
 
 export default {
   name: 'Detail',
-  components: { About }
+  components: { About, Friends },
+  computed: {
+    route() {
+      return this.$route.params.id;
+    }
+  }
 }
 </script>
 

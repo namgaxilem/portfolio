@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header @headerLinkTo="headerLinkTo" />
     <Nav
       v-if="!isViewDetail && $route.name !== 'detail'"
       ref="nav"
@@ -74,7 +74,6 @@ export default {
   },
   data() {
     return {
-      isReload: false,
       isViewDetail: false,
       initialPos: 0,
       state: {
@@ -138,8 +137,6 @@ export default {
     }
   },
   created() {
-    this.isReload = true;
-
     if (this.$route.params.id === "about") {
       this.state.nextPage = 2;
       this.initialPos = 2;
@@ -231,6 +228,7 @@ export default {
         this.$refs.pageTwo.viewDetail();
         this.$refs.pageTwo.removeAnimation();
       } else if (currentPage === 4) {
+        this.$refs.pageFour.viewDetail();
         this.$refs.pageFour.removeAnimation();
       }
 
@@ -252,7 +250,8 @@ export default {
           await this.$router.push({ name: "main", params: { id: "about" } });
           this.$refs.pageTwo.setIsTransforming(true);
         } else if (this.state.currentPage === 4) {
-          this.$router.push({ name: "main", params: { id: "friends" } });
+          await this.$router.push({ name: "main", params: { id: "friends" } });
+          this.$refs.pageFour.setIsTransforming(true);
         }
       }, 600);
       if (this.state.currentPage === 2) {
@@ -260,7 +259,25 @@ export default {
       } else if (this.state.currentPage === 4) {
         this.$refs.pageFour.backToMainPage();
       }
-      
+    },
+    headerLinkTo(val) {
+      this.isViewDetail = false;
+      this.state.transformPage1 = 0;
+      this.state.transformPage2 = 0;
+      this.state.transformPage3 = 0;
+      this.state.transformPage4 = 0;
+      this.$refs.pageTwo.setIsTransforming(true);
+      this.$refs.pageFour.setIsTransforming(true);
+      if (val === 'about') {
+        this.initialPos = 2;
+      } else if (val === 'projects') {
+        this.initialPos = 3;
+      } else if (val === 'friends') { 
+        this.initialPos = 4;
+      } else {
+        this.initialPos = 1;
+      }
+      this.state.currentPage = this.initialPos;
     }
   }
 };
