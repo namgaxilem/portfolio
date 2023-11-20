@@ -1,0 +1,21 @@
+.scrollDownContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  bottom: -20px;
+  left: 43px;
+  transform: rotate(-90deg);
+  transform-origin: left;
+
+  @include Responsive(SM) {
+    right: 43px;
+  }
+
+  .verticalLine {
+    width: 100px;
+    height: 3px;
+    background-color: white;
+    display: block;
+  }
+}

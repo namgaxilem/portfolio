@@ -13,6 +13,13 @@ export default function Header() {
         <a className={styles.myName}>Nam Nguyễn</a>
         <div className={styles.linkGroup}>
           <a
+            href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0/"
+            target="_blank"
+            className={styles.brandIcon}
+          >
+            <img src={LINKEDIN_ICON} />
+          </a>
+          <a
             href="https://www.instagram.com/namnungniuz/"
             target="_blank"
             className={styles.brandIcon}
@@ -26,13 +33,7 @@ export default function Header() {
           >
             <img src={FACEBOOK_ICON} />
           </a>
-          <a
-            href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0/"
-            target="_blank"
-            className={styles.brandIcon}
-          >
-            <img src={LINKEDIN_ICON} />
-          </a>
+
           <div
             className={styles.hamburgerLines}
             onClick={() => setOpenNav(!openNav)}
@@ -53,10 +54,41 @@ export default function Header() {
 
       <div className={`${styles.overlay} ${openNav && styles.active}`}>
         <div className={styles.overlayContent}>
-          <a href="#home">Home</a>
-          <a href="#profile">Profile</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="#home">
+            Home <span className={styles.lineThrough} />
+          </a>
+          <a href="#profile">
+            Profile <span className={styles.lineThrough} />
+          </a>
+          <a href="#about">
+            About <span className={styles.lineThrough} />
+          </a>
+          <a href="#contact">
+            Contact <span className={styles.lineThrough} />
+          </a>
+          <div className={styles.socialGroup}>
+            <a
+              href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0/"
+              target="_blank"
+              className={styles.brandIcon}
+            >
+              <img src={LINKEDIN_ICON} />
+            </a>
+            <a
+              href="https://www.instagram.com/namnungniuz/"
+              target="_blank"
+              className={styles.brandIcon}
+            >
+              <img src={INSTAGRAM_ICON} />
+            </a>
+            <a
+              href="https://www.facebook.com/namgaxilem/"
+              target="_blank"
+              className={styles.brandIcon}
+            >
+              <img src={FACEBOOK_ICON} />
+            </a>
+          </div>
         </div>
       </div>
     </>
