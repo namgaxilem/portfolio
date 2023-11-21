@@ -5,7 +5,6 @@ export default function NavigationBar() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log("concac", location);
   const isSelected = (compareHash: string) => {
     if (location.pathname !== "/") {
       return false;

@@ -1,15 +1,34 @@
+$pagePadding: 45px;
+
 .scrollDownContainer {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   column-gap: 10px;
-  bottom: -20px;
-  left: 43px;
-  transform: rotate(-90deg);
-  transform-origin: left;
+  transition: all 0.5s;
+  transform: translateX(100%);
+  bottom: -100%;
 
-  @include Responsive(SM) {
-    right: 43px;
+  &.left {
+    left: $pagePadding;
+    transform: rotate(-90deg);
+    transform-origin: left;
+
+    @include Responsive(SM) {
+      display: none;
+    }
+  }
+
+  &.right {
+    display: none;
+    left: auto;
+    right: $pagePadding;
+    transform: rotate(90deg);
+    transform-origin: right;
+
+    @include Responsive(SM) {
+      display: flex;
+    }
   }
 
   .verticalLine {
@@ -17,5 +36,9 @@
     height: 3px;
     background-color: white;
     display: block;
+  }
+
+  &.active {
+    bottom: -20px;
   }
 }

@@ -5,7 +5,7 @@
 
   @include Responsive(SM) {
     padding: 20px;
-    bottom: 0;
+    bottom: -60px;
     top: auto;
     left: 50%;
     transform: translateX(-50%) rotate(-90deg);
