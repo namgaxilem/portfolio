@@ -5,6 +5,8 @@ import Header from "./Header";
 import NavigationBar from "./NavigationBar";
 import styles from "./styles.module.scss";
 import { useLocation, useNavigate } from "react-router-dom";
+import HomeMainTitle from "../../components/HomeMainTitle";
+import HomeMainBanner from "../../components/HomeMainBanner";
 
 const HOME_CONTAINER_ID = "homeContainer";
 
@@ -80,10 +82,28 @@ export default function Home() {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <HomeContent id="home">home</HomeContent>
-        <HomeContent id="profile">profile</HomeContent>
-        <HomeContent id="about">about</HomeContent>
-        <HomeContent id="contact">contact</HomeContent>
+        <HomeContent id="home">
+          <HomeMainTitle title="Nam Nguyen" subTitle="Tao laf developer" />
+          <HomeMainBanner pageNumber={"01"} />
+        </HomeContent>
+        <HomeContent id="profile">
+          <HomeMainTitle
+            title="My Profile"
+            subTitle="Check out my projects here"
+          />
+          <HomeMainBanner pageNumber={"02"} />
+        </HomeContent>
+        <HomeContent id="about">
+          <HomeMainTitle
+            title="About me"
+            subTitle="Some information about me"
+          />
+          <HomeMainBanner pageNumber={"03"} />
+        </HomeContent>
+        <HomeContent id="contact">
+          <HomeMainTitle title="Contact" subTitle="Contact with me" />
+          <HomeMainBanner pageNumber={"04"} />
+        </HomeContent>
       </div>
       <ScrollDown />
     </>

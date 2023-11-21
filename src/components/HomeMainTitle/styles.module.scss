@@ -1,0 +1,29 @@
+.homeMainTitleContainer {
+  position: absolute;
+  left: 150px;
+
+  .title {
+    font-size: 80px;
+  }
+
+  .twoDash {
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100px;
+
+    .dash {
+      height: 3px;
+      background-color: #ff4d5a;
+      width: 70px;
+    }
+
+    .dash1 {
+    }
+
+    .dash2 {
+      align-self: flex-end;
+    }
+  }
+}
