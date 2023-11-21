@@ -36,7 +36,10 @@ export default function Home() {
       location.hash === "" ? "#home" : location.hash
     ).replace("#", "");
     for (let i = 0; i < section.childNodes.length; i++) {
-      idList.push(section.childNodes[i].id);
+      const clone = section.childNodes[i].cloneNode(true) as HTMLElement;
+      if (clone.id) {
+        idList.push(clone.id);
+      }
     }
     const currentPageIndex = idList.indexOf(currentHash);
     let targetPageIndex = -1;
