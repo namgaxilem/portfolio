@@ -83,11 +83,16 @@ export default function Home() {
         onTouchEnd={onTouchEnd}
       >
         <HomeContent id="home">
-          <HomeMainTitle title="Nam Nguyen" subTitle="Tao laf developer" />
+          <HomeMainTitle
+            idAnchorPage="home"
+            title="Nam Nguyen"
+            subTitle="Tao laf developer"
+          />
           <HomeMainBanner pageNumber={"01"} />
         </HomeContent>
         <HomeContent id="profile">
           <HomeMainTitle
+            idAnchorPage="profile"
             title="My Profile"
             subTitle="Check out my projects here"
           />
@@ -95,13 +100,18 @@ export default function Home() {
         </HomeContent>
         <HomeContent id="about">
           <HomeMainTitle
+            idAnchorPage="about"
             title="About me"
             subTitle="Some information about me"
           />
           <HomeMainBanner pageNumber={"03"} />
         </HomeContent>
         <HomeContent id="contact">
-          <HomeMainTitle title="Contact" subTitle="Contact with me" />
+          <HomeMainTitle
+            idAnchorPage="contact"
+            title="Contact"
+            subTitle="Contact with me"
+          />
           <HomeMainBanner pageNumber={"04"} />
         </HomeContent>
       </div>
