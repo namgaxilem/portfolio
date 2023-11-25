@@ -5,8 +5,9 @@ $pagePadding: 45px;
   display: flex;
   align-items: center;
   column-gap: 10px;
-  transition: all 0.5s;
   transform: translateX(100%);
+  transition: all 1.2s;
+  transition-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
   bottom: -100%;
 
   &.left {

@@ -34,9 +34,7 @@ export default function Home() {
     setTouchEndClientY(undefined);
     const section = document.getElementById(HOME_CONTAINER_ID);
     const idList: string[] = [];
-    const currentHash = (
-      location.hash === "" ? "#home" : location.hash
-    ).replace("#", "");
+    const currentHash = (location.hash === "" ? "#home" : location.hash).replace("#", "");
     for (let i = 0; i < section.childNodes.length; i++) {
       const clone = section.childNodes[i].cloneNode(true) as HTMLElement;
       if (clone.id) {
@@ -75,43 +73,21 @@ export default function Home() {
     <>
       <Header />
       <NavigationBar />
-      <div
-        id={HOME_CONTAINER_ID}
-        className={styles.container}
-        onWheel={onWheel}
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
-      >
+      <div id={HOME_CONTAINER_ID} className={styles.container} onWheel={onWheel} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <HomeContent id="home">
-          <HomeMainTitle
-            idAnchorPage="home"
-            title="Nam Nguyen"
-            subTitle="Tao laf developer"
-          />
+          <HomeMainTitle idAnchorPage="home" title="Nam Nguyen" subTitle="Tao laf developer" />
           <HomeMainBanner pageNumber={"01"} />
         </HomeContent>
         <HomeContent id="profile">
-          <HomeMainTitle
-            idAnchorPage="profile"
-            title="My Profile"
-            subTitle="Check out my projects here"
-          />
+          <HomeMainTitle idAnchorPage="profile" title="My Profile" subTitle="Check out my projects here" buttonTxt="Show me more" />
           <HomeMainBanner pageNumber={"02"} />
         </HomeContent>
         <HomeContent id="about">
-          <HomeMainTitle
-            idAnchorPage="about"
-            title="About me"
-            subTitle="Some information about me"
-          />
+          <HomeMainTitle idAnchorPage="about" title="About me" subTitle="Some information about me" buttonTxt="Show me more" />
           <HomeMainBanner pageNumber={"03"} />
         </HomeContent>
         <HomeContent id="contact">
-          <HomeMainTitle
-            idAnchorPage="contact"
-            title="Contact"
-            subTitle="Contact with me"
-          />
+          <HomeMainTitle idAnchorPage="contact" title="Contact" subTitle="Contact with me" />
           <HomeMainBanner pageNumber={"04"} />
         </HomeContent>
       </div>
