@@ -63,7 +63,7 @@ export default function Home() {
   }, [location]);
 
   useEffect(() => {
-    if (touchStartClientY && touchEndClientY) {
+    if (touchStartClientY && touchEndClientY && !(touchEndClientY === touchStartClientY)) {
       scrollUpOrDownOnScroll(touchEndClientY < touchStartClientY);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

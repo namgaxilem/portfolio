@@ -1,4 +1,42 @@
 .homeMainBannerContainer {
   position: absolute;
   right: 150px;
+  display: flex;
+  row-gap: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 60vh;
+  width: 50vw;
+  background-color: rebeccapurple;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.mainBanner {
+}
+
+.pageNumber {
+  font-size: 100px;
+  bottom: 0px;
+  right: 40px;
+  position: absolute;
+  z-index: 3;
+}
+
+// Animation definition here
+.pageNumberRun {
+  bottom: -100%;
+  animation-name: pageNumberRunKeyFrame;
+  animation-duration: 0.85s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
+}
+@keyframes pageNumberRunKeyFrame {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 0px;
+  }
 }
