@@ -16,16 +16,16 @@ export default function HomeMainBanner({ pageNumber }: Props) {
       (pageNumber === "03" && hash === "about") ||
       (pageNumber === "04" && hash === "contact")
     ) {
-      return styles.pageNumberRun;
+      return true;
     }
-    return null;
+    return false;
   };
 
   return (
     <>
-      <div className={styles.homeMainBannerContainer}>
+      <div className={`${styles.homeMainBannerContainer} ${checkHashChange() ? styles.homeMainBannerContainerRun : null}`}>
         <div className={styles.mainBanner}>Image HomeMainBanner</div>
-        <div className={`${styles.pageNumber} ${checkHashChange()}`}>{pageNumber}</div>
+        <div className={`${styles.pageNumber} ${checkHashChange() ? styles.pageNumberRun : null}`}>{pageNumber}</div>
       </div>
     </>
   );

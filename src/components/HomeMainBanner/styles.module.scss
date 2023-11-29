@@ -13,6 +13,7 @@
 }
 
 .mainBanner {
+  // position: relative;
 }
 
 .pageNumber {
@@ -38,5 +39,22 @@
   }
   to {
     bottom: 0px;
+  }
+}
+
+.homeMainBannerContainerRun {
+  transform: scale(95%) translate(10%, 20px);
+  animation-name: homeMainBannerContainerRunKeyFrame;
+  animation-duration: 2s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
+}
+@keyframes homeMainBannerContainerRunKeyFrame {
+  from {
+    transform: scale(95%) translate(10%, 20px);
+  }
+  to {
+    transform: scale(100%) translateX(0);
   }
 }
