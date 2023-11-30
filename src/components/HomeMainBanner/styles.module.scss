@@ -7,13 +7,25 @@
   align-items: flex-start;
   height: 60vh;
   width: 50vw;
-  background-color: rebeccapurple;
+  background-color: peru;
   z-index: 1;
   overflow: hidden;
+  cursor: pointer;
 }
 
-.mainBanner {
-  // position: relative;
+.mainBannerCover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #072142;
+  transform: translateX(100%);
+}
+
+.columnCover {
+  position: absolute;
+  height: 100%;
+  width: 0px;
+  background-color: #ff4d5a;
 }
 
 .pageNumber {
@@ -29,7 +41,7 @@
   bottom: -100%;
   animation-name: pageNumberRunKeyFrame;
   animation-duration: 0.85s;
-  animation-delay: 0.5s;
+  animation-delay: 0.8s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
 }
@@ -43,18 +55,64 @@
 }
 
 .homeMainBannerContainerRun {
-  transform: scale(95%) translate(10%, 20px);
+  transform: scale(90%) translate(10%, 30px);
   animation-name: homeMainBannerContainerRunKeyFrame;
-  animation-duration: 2s;
+  animation-duration: 2.5s;
   animation-delay: 0.2s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
 }
 @keyframes homeMainBannerContainerRunKeyFrame {
   from {
-    transform: scale(95%) translate(10%, 20px);
+    transform: scale(90%) translate(10%, 30px);
   }
   to {
-    transform: scale(100%) translateX(0);
+    transform: scale(100%) translate(0);
+  }
+}
+
+.mainBannerCoverRun {
+  transform: translateX(0%);
+  animation-name: mainBannerCoverRunKeyFrame;
+  animation-duration: 0.8s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+@keyframes mainBannerCoverRunKeyFrame {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.columnCoverRun {
+  width: 5px;
+  animation-name: columnCoverRunKeyFrame;
+  animation-duration: 0.8s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+@keyframes columnCoverRunKeyFrame {
+  0% {
+    left: 0px;
+    width: 10px;
+  }
+  25% {
+    width: 150px;
+  }
+  50% {
+    width: 150px;
+  }
+  60% {
+    width: 150px;
+  }
+  75% {
+    width: 150px;
+  }
+  100% {
+    left: 100%;
+    width: 0px;
   }
 }

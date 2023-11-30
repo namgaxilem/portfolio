@@ -24,7 +24,8 @@ export default function HomeMainBanner({ pageNumber }: Props) {
   return (
     <>
       <div className={`${styles.homeMainBannerContainer} ${checkHashChange() ? styles.homeMainBannerContainerRun : null}`}>
-        <div className={styles.mainBanner}>Image HomeMainBanner</div>
+        <div className={`${styles.mainBannerCover} ${checkHashChange() ? styles.mainBannerCoverRun : null}`}></div>
+        <div className={`${styles.columnCover} ${checkHashChange() ? styles.columnCoverRun : null}`}></div>
         <div className={`${styles.pageNumber} ${checkHashChange() ? styles.pageNumberRun : null}`}>{pageNumber}</div>
       </div>
     </>

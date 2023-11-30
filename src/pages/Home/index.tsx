@@ -60,6 +60,7 @@ export default function Home() {
   useEffect(() => {
     const section = document.getElementById(location.hash.replace("#", ""));
     section && section.scrollIntoView({ behavior: "smooth" });
+    console.log("location", location);
   }, [location]);
 
   useEffect(() => {
@@ -75,7 +76,11 @@ export default function Home() {
       <NavigationBar />
       <div id={HOME_CONTAINER_ID} className={styles.container} onWheel={onWheel} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <HomeContent id="home">
-          <HomeMainTitle idAnchorPage="home" title="Nam Nguyen" subTitle="Tao laf developer" />
+          <HomeMainTitle
+            idAnchorPage="home"
+            title="Nam Nguyen"
+            subTitle="fullstack developer / &#13;&#10; web engineer"
+          />
           <HomeMainBanner pageNumber={"01"} />
         </HomeContent>
         <HomeContent id="profile">
@@ -83,11 +88,11 @@ export default function Home() {
           <HomeMainBanner pageNumber={"02"} />
         </HomeContent>
         <HomeContent id="about">
-          <HomeMainTitle idAnchorPage="about" title="About me" subTitle="Some information about me" buttonTxt="Show me more" />
+          <HomeMainTitle idAnchorPage="about" title="About Me" subTitle="I love coding and making things on the web" buttonTxt="Show me more" />
           <HomeMainBanner pageNumber={"03"} />
         </HomeContent>
         <HomeContent id="contact">
-          <HomeMainTitle idAnchorPage="contact" title="Contact" subTitle="Contact with me" />
+          <HomeMainTitle idAnchorPage="contact" title="Contact" subTitle="Contact me" />
           <HomeMainBanner pageNumber={"04"} />
         </HomeContent>
       </div>
