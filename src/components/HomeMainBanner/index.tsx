@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { MainHomePageNumberType } from "@/types";
 
@@ -7,6 +7,7 @@ interface Props {
 }
 export default function HomeMainBanner({ pageNumber }: Props) {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const checkHashChange = () => {
     const hash = location.hash.replace("#", "");
@@ -21,9 +22,30 @@ export default function HomeMainBanner({ pageNumber }: Props) {
     return false;
   };
 
+  const checkPathChange = () => {
+    const pathname = location.pathname;
+    if ((pageNumber === "02" && pathname === "/profile") || (pageNumber === "03" && pathname === "/about")) {
+      return true;
+    }
+    return false;
+  };
+
+  const onClickBanner = () => {
+    switch (pageNumber) {
+      case "02":
+        navigate("/profile");
+        break;
+      case "03":
+        navigate("/about");
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <>
-      <div className={`${styles.homeMainBannerContainer} ${checkHashChange() ? styles.homeMainBannerContainerRun : null}`}>
+      <div onClick={onClickBanner} className={`${styles.homeMainBannerContainer} ${checkHashChange() ? styles.homeMainBannerContainerRun : null}`}>
         <div className={`${styles.mainBannerCover} ${checkHashChange() ? styles.mainBannerCoverRun : null}`}></div>
         <div className={`${styles.columnCover} ${checkHashChange() ? styles.columnCoverRun : null}`}></div>
         <div className={`${styles.pageNumber} ${checkHashChange() ? styles.pageNumberRun : null}`}>{pageNumber}</div>

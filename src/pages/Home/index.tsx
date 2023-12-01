@@ -17,7 +17,7 @@ export default function Home() {
   const [touchEndClientY, setTouchEndClientY] = useState<number>(undefined);
 
   const onWheel = (e) => {
-    e.deltaY > 0 ? console.log("Down") : console.log("Up");
+    e.deltaY > 0 ? console.info("Down") : console.info("Up");
     scrollUpOrDownOnScroll(e.deltaY > 0);
   };
 
@@ -60,7 +60,6 @@ export default function Home() {
   useEffect(() => {
     const section = document.getElementById(location.hash.replace("#", ""));
     section && section.scrollIntoView({ behavior: "smooth" });
-    console.log("location", location);
   }, [location]);
 
   useEffect(() => {

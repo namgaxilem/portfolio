@@ -15,29 +15,24 @@ export default function NavigationBar() {
     return false;
   };
 
+  const hideNavigationBar = () => {
+    const pathname = location.pathname;
+    if (pathname !== "/") {
+      return true;
+    }
+    return false;
+  };
+
   return (
-    <div className={styles.navigationContainer}>
-      <ul>
+    <div className={`${styles.navigationContainer} `}>
+      <ul className={`${hideNavigationBar() ? styles.hideNavigationBar : ""}`}>
         <li
-          className={
-            isSelected("#home") || (location.pathname === "/" && !location.hash)
-              ? styles.active
-              : ""
-          }
+          className={isSelected("#home") || (location.pathname === "/" && !location.hash) ? styles.active : ""}
           onClick={() => navigate("/#home")}
         ></li>
-        <li
-          className={isSelected("#profile") ? styles.active : ""}
-          onClick={() => navigate("/#profile")}
-        ></li>
-        <li
-          className={isSelected("#about") ? styles.active : ""}
-          onClick={() => navigate("/#about")}
-        ></li>
-        <li
-          className={isSelected("#contact") ? styles.active : ""}
-          onClick={() => navigate("/#contact")}
-        ></li>
+        <li className={isSelected("#profile") || location.pathname === "/profile" ? styles.active : ""} onClick={() => navigate("/#profile")}></li>
+        <li className={isSelected("#about") || location.pathname === "/about" ? styles.active : ""} onClick={() => navigate("/#about")}></li>
+        <li className={isSelected("#contact") ? styles.active : ""} onClick={() => navigate("/#contact")}></li>
       </ul>
     </div>
   );
