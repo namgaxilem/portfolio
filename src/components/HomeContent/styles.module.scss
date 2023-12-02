@@ -5,4 +5,13 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: all 0.8s;
+}
+
+.notDetailPage {
+  display: none;
+}
+
+.detailPage {
+  background-color: black;
 }

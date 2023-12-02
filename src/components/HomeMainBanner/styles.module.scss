@@ -36,7 +36,6 @@
   z-index: 3;
 }
 
-// Animation definition here
 .pageNumberRun {
   bottom: -100%;
   animation-name: pageNumberRunKeyFrame;
@@ -114,5 +113,22 @@
   100% {
     left: 100%;
     width: 0px;
+  }
+}
+
+.homeMainBannerDetailRun {
+  transform: scale(90%) translate(10%, 30px);
+  animation-name: homeMainBannerDetailRunKeyFrame;
+  animation-duration: 2.5s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
+}
+@keyframes homeMainBannerDetailRunKeyFrame {
+  from {
+    transform: scale(90%) translate(10%, 30px);
+  }
+  to {
+    transform: scale(100%) translate(0);
   }
 }

@@ -1,15 +1,12 @@
 .container {
   min-height: 100%;
   min-width: 100%;
-  background-image: linear-gradient(
-    to bottom,
-    #072142,
-    #061c37,
-    #07182b,
-    #061220,
-    #020b16
-  );
+  background-image: linear-gradient(to bottom, #072142, #061c37, #07182b, #061220, #020b16);
   overflow: hidden;
   height: 100%;
   scroll-behavior: smooth;
+}
+
+.containerDetailPage {
+  overflow: auto;
 }

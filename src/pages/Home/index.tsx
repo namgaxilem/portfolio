@@ -7,6 +7,8 @@ import styles from "./styles.module.scss";
 import { useLocation, useNavigate } from "react-router-dom";
 import HomeMainTitle from "../../components/HomeMainTitle";
 import HomeMainBanner from "../../components/HomeMainBanner";
+import About from "../About";
+import Profile from "../Profile";
 
 const HOME_CONTAINER_ID = "homeContainer";
 
@@ -17,6 +19,9 @@ export default function Home() {
   const [touchEndClientY, setTouchEndClientY] = useState<number>(undefined);
 
   const onWheel = (e) => {
+    // if (isDetailPage()) {
+    //   return;
+    // }
     e.deltaY > 0 ? console.info("Down") : console.info("Up");
     scrollUpOrDownOnScroll(e.deltaY > 0);
   };
@@ -30,6 +35,9 @@ export default function Home() {
   };
 
   const scrollUpOrDownOnScroll = (isDown: boolean) => {
+    if (isDetailPage()) {
+      return;
+    }
     setTouchStartClientY(undefined);
     setTouchEndClientY(undefined);
     const section = document.getElementById(HOME_CONTAINER_ID);
@@ -57,6 +65,15 @@ export default function Home() {
     navigate(`/#${idList[targetPageIndex]}`);
   };
 
+  const isDetailPage = () => {
+    const pathname = location.pathname;
+    // const hash = location.hash.replace("#", "");
+    if (pathname !== "/") {
+      return true;
+    }
+    return false;
+  };
+
   useEffect(() => {
     const section = document.getElementById(location.hash.replace("#", ""));
     section && section.scrollIntoView({ behavior: "smooth" });
@@ -73,7 +90,13 @@ export default function Home() {
     <>
       <Header />
       <NavigationBar />
-      <div id={HOME_CONTAINER_ID} className={styles.container} onWheel={onWheel} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+      <div
+        id={HOME_CONTAINER_ID}
+        className={`${styles.container} ${isDetailPage() ? styles.containerDetailPage : ""}`}
+        onWheel={onWheel}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
         <HomeContent id="home">
           <HomeMainTitle
             idAnchorPage="home"
@@ -94,6 +117,9 @@ export default function Home() {
           <HomeMainTitle idAnchorPage="contact" title="Contact" subTitle="Contact me" />
           <HomeMainBanner pageNumber={"04"} />
         </HomeContent>
+
+        <Profile />
+        <About />
       </div>
       <ScrollDown />
     </>

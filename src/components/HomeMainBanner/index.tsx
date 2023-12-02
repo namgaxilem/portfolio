@@ -22,7 +22,7 @@ export default function HomeMainBanner({ pageNumber }: Props) {
     return false;
   };
 
-  const checkPathChange = () => {
+  const isDetailPage = () => {
     const pathname = location.pathname;
     if ((pageNumber === "02" && pathname === "/profile") || (pageNumber === "03" && pathname === "/about")) {
       return true;
@@ -45,7 +45,11 @@ export default function HomeMainBanner({ pageNumber }: Props) {
 
   return (
     <>
-      <div onClick={onClickBanner} className={`${styles.homeMainBannerContainer} ${checkHashChange() ? styles.homeMainBannerContainerRun : null}`}>
+      <div
+        onClick={onClickBanner}
+        className={`${styles.homeMainBannerContainer} 
+      ${checkHashChange() ? styles.homeMainBannerContainerRun : null} ${isDetailPage() ? styles.homeMainBannerDetailRun : ""}`}
+      >
         <div className={`${styles.mainBannerCover} ${checkHashChange() ? styles.mainBannerCoverRun : null}`}></div>
         <div className={`${styles.columnCover} ${checkHashChange() ? styles.columnCoverRun : null}`}></div>
         <div className={`${styles.pageNumber} ${checkHashChange() ? styles.pageNumberRun : null}`}>{pageNumber}</div>
