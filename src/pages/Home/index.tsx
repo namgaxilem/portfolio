@@ -9,6 +9,7 @@ import HomeMainTitle from "../../components/HomeMainTitle";
 import HomeMainBanner from "../../components/HomeMainBanner";
 import About from "../About";
 import Profile from "../Profile";
+import MoonBackground from "@/components/MoonBackground";
 
 const HOME_CONTAINER_ID = "homeContainer";
 
@@ -88,6 +89,7 @@ export default function Home() {
 
   return (
     <>
+      <MoonBackground />
       <Header />
       <NavigationBar />
       <div
