@@ -52,7 +52,11 @@ export default function HomeMainBanner({ pageNumber }: Props) {
       >
         <div className={`${styles.mainBannerCover} ${checkHashChange() ? styles.mainBannerCoverRun : null}`}></div>
         <div className={`${styles.columnCover} ${checkHashChange() ? styles.columnCoverRun : null}`}></div>
-        <div className={`${styles.pageNumber} ${checkHashChange() ? styles.pageNumberRun : null}`}>{pageNumber}</div>
+        <div
+          className={`${styles.pageNumber} ${checkHashChange() ? styles.pageNumberRun : null} ${isDetailPage() ? styles.pageNumberHideRun : null}`}
+        >
+          {pageNumber}
+        </div>
       </div>
     </>
   );
