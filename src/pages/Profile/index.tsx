@@ -14,7 +14,7 @@ export default function Profile() {
   return (
     <main className={`${styles.detailContainer} ${isDetailPage() ? styles.show : ""}`}>
       {[...Array(100)].map((e) => (
-        <div>e</div>
+        <div key={e}>e</div>
       ))}
     </main>
   );

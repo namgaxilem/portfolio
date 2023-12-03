@@ -97,10 +97,15 @@
   top: 100px;
   left: 40px;
   cursor: pointer;
-  transition: all 0.8s;
+  overflow: hidden;
 
-  &.hide {
-    left: 100&;
+  svg {
+    position: relative;
+    transition: all 0.5s;
+
+    &.hide {
+      transform: translateX(-100%);
+    }
   }
 }
 

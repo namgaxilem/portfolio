@@ -44,8 +44,8 @@ export default function Header() {
           </div>
         </div>
 
-        <span className={`${isDetailPage() ? styles.backArrow : styles.hide}`} onClick={goBack}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="34" viewBox="0 0 67 34">
+        <span className={`${styles.backArrow} ${isDetailPage() ? "" : styles.hide}`} onClick={goBack}>
+          <svg className={` ${isDetailPage() ? "" : styles.hide}`} xmlns="http://www.w3.org/2000/svg" width="100%" height="34" viewBox="0 0 67 34">
             <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" transform="translate(2 1)">
               <path stroke-width="2" d="M0,15.5533333 L64,15.5533333"></path>
               <polyline stroke-width="2" points="15.556 0 0 15.556 15.556 31.111"></polyline>
