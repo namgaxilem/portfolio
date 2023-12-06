@@ -34,13 +34,15 @@ export default function HomeMainTitle({ idAnchorPage, title, subTitle, buttonTxt
 
   return (
     <div className={styles.homeMainTitleContainer}>
-      <div className={`${styles.title} ${checkHashChange("title")}`}>{title}</div>
-      <div className={styles.twoDash}>
-        <span className={`${styles.dash} ${styles.dash1} ${checkHashChange("dash1")}`}></span>
-        <span className={`${styles.dash} ${styles.dash2} ${checkHashChange("dash2")}`}></span>
+      <div className={styles.homeMainTitleWrap}>
+        <div className={`${styles.title} ${checkHashChange("title")}`}>{title}</div>
+        <div className={styles.twoDash}>
+          <span className={`${styles.dash} ${styles.dash1} ${checkHashChange("dash1")}`}></span>
+          <span className={`${styles.dash} ${styles.dash2} ${checkHashChange("dash2")}`}></span>
+        </div>
+        <div className={`${styles.subTitle} ${checkHashChange("subTitle")}`}>{subTitle}</div>
+        {buttonTxt && <button className={`${styles.button} ${checkHashChange("button")}`}>{buttonTxt}</button>}
       </div>
-      <div className={`${styles.subTitle} ${checkHashChange("subTitle")}`}>{subTitle}</div>
-      {buttonTxt && <button className={`${styles.button} ${checkHashChange("button")}`}>{buttonTxt}</button>}
     </div>
   );
 }

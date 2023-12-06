@@ -10,6 +10,7 @@ import HomeMainBanner from "../../components/HomeMainBanner";
 import About from "../About";
 import Profile from "../Profile";
 import MoonBackground from "@/components/MoonBackground";
+import BlackCover from "@/components/BlackCover";
 
 const HOME_CONTAINER_ID = "homeContainer";
 
@@ -20,9 +21,6 @@ export default function Home() {
   const [touchEndClientY, setTouchEndClientY] = useState<number>(undefined);
 
   const onWheel = (e) => {
-    // if (isDetailPage()) {
-    //   return;
-    // }
     e.deltaY > 0 ? console.info("Down") : console.info("Up");
     scrollUpOrDownOnScroll(e.deltaY > 0);
   };
@@ -68,7 +66,6 @@ export default function Home() {
 
   const isDetailPage = () => {
     const pathname = location.pathname;
-    // const hash = location.hash.replace("#", "");
     if (pathname !== "/") {
       return true;
     }
@@ -86,6 +83,14 @@ export default function Home() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [touchEndClientY]);
+
+  useEffect(() => {
+    const pathname = location.pathname;
+    const hash = location.hash;
+    if (pathname === "/" && hash === "") {
+      navigate("/#home");
+    }
+  }, []);
 
   return (
     <>
@@ -124,6 +129,7 @@ export default function Home() {
         <About />
       </div>
       <ScrollDown />
+      <BlackCover />
     </>
   );
 }
