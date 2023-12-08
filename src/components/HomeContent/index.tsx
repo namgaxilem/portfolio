@@ -17,7 +17,6 @@ export default function HomeContent({ id, children }: Props) {
     if (hash) {
       return "";
     }
-    return styles.notDetailPage;
   };
 
   return (

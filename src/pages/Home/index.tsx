@@ -97,13 +97,7 @@ export default function Home() {
       <MoonBackground />
       <Header />
       <NavigationBar />
-      <div
-        id={HOME_CONTAINER_ID}
-        className={`${styles.container} ${isDetailPage() ? styles.containerDetailPage : ""}`}
-        onWheel={onWheel}
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
-      >
+      <div id={HOME_CONTAINER_ID} className={`${styles.container}`} onWheel={onWheel} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <HomeContent id="home">
           <HomeMainTitle
             idAnchorPage="home"
@@ -115,18 +109,20 @@ export default function Home() {
         <HomeContent id="profile">
           <HomeMainTitle idAnchorPage="profile" title="My Profile" subTitle="Check out my projects here" buttonTxt="Show me more" />
           <HomeMainBanner pageNumber={"02"} />
+          <Profile />
         </HomeContent>
         <HomeContent id="about">
           <HomeMainTitle idAnchorPage="about" title="About Me" subTitle="I love coding and making things on the web" buttonTxt="Show me more" />
           <HomeMainBanner pageNumber={"03"} />
+          <About />
         </HomeContent>
         <HomeContent id="contact">
           <HomeMainTitle idAnchorPage="contact" title="Contact" subTitle="Contact me" />
           <HomeMainBanner pageNumber={"04"} />
         </HomeContent>
 
-        <Profile />
-        <About />
+        {/* <Profile /> */}
+        {/* <About /> */}
       </div>
       <ScrollDown />
       <BlackCover />

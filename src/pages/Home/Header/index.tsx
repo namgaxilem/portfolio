@@ -18,7 +18,27 @@ export default function Header() {
     return false;
   };
 
-  const goBack = () => {
+  async function scrollByY(endY, time) {
+    const detailDiv = document.getElementById(location.pathname.replace("/", ""));
+    const startY = detailDiv.scrollTop;
+    const startTime = performance.now();
+    const endTime = startTime + time;
+    const distance = startY - endY;
+    let currentY = startY;
+
+    while (performance.now() < endTime) {
+      const progress = (performance.now() - startTime) / time;
+      currentY = startY - progress * distance;
+      detailDiv.scrollTo(0, currentY);
+      // wait for the next frame
+      await new Promise(requestAnimationFrame);
+    }
+    detailDiv.scrollTo(0, endY);
+    await new Promise((res) => setTimeout(res, 100));
+  }
+
+  const goBack = async () => {
+    await scrollByY(0, 500);
     const hashToGo = location.pathname.replace("/", "");
     navigate(`/#${hashToGo}`);
   };

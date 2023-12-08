@@ -8,10 +8,8 @@
   transition: all 0.8s;
 }
 
-.notDetailPage {
-  display: none;
-}
-
 .detailPage {
   background-color: black;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
