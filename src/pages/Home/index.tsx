@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
+import BlackCover from "@/components/BlackCover";
+import MoonBackground from "@/components/MoonBackground";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import HomeContent from "../../components/HomeContent";
+import HomeMainBanner from "../../components/HomeMainBanner";
+import HomeMainTitle from "../../components/HomeMainTitle";
 import ScrollDown from "../../components/ScrollDown";
+import About from "../About";
+import Profile from "../Profile";
 import Header from "./Header";
 import NavigationBar from "./NavigationBar";
 import styles from "./styles.module.scss";
-import { useLocation, useNavigate } from "react-router-dom";
-import HomeMainTitle from "../../components/HomeMainTitle";
-import HomeMainBanner from "../../components/HomeMainBanner";
-import About from "../About";
-import Profile from "../Profile";
-import MoonBackground from "@/components/MoonBackground";
-import BlackCover from "@/components/BlackCover";
 
 const HOME_CONTAINER_ID = "homeContainer";
 
@@ -66,36 +66,21 @@ export default function Home() {
     return false;
   };
 
-  async function scrollByY(endY, time) {
-    const detailDiv = document.getElementById(HOME_CONTAINER_ID);
-    const startY = detailDiv.scrollTop;
-    const startTime = performance.now();
-    const endTime = startTime + time;
-    const distance = startY - endY;
-    let currentY = startY;
-
-    while (performance.now() < endTime) {
-      const progress = (performance.now() - startTime) / time;
-      currentY = startY - progress * distance;
-      detailDiv.scrollTo(0, currentY);
-      // wait for the next frame
-      await new Promise(requestAnimationFrame);
-    }
-    detailDiv.scrollTo(0, endY);
-    await new Promise((res) => setTimeout(res, 100));
-  }
-
-  useEffect(() => {
+  const locationChangeHandler = () => {
     const hash = location.hash.replace("#", "");
     const pathname = location.pathname.replace("/", "");
+    const homeContainerDiv = document.getElementById(HOME_CONTAINER_ID);
     let section: HTMLElement;
     if (hash) {
       section = document.getElementById(hash);
     } else if (pathname) {
       section = document.getElementById(pathname);
     }
-    // scrollByY(section.offsetTop, 1000);
-    section && section.scrollIntoView({ behavior: "smooth" });
+    homeContainerDiv && homeContainerDiv.scrollTo(0, section.offsetTop);
+  };
+
+  useLayoutEffect(() => {
+    locationChangeHandler();
   }, [location]);
 
   useEffect(() => {
@@ -141,9 +126,6 @@ export default function Home() {
           <HomeMainTitle idAnchorPage="contact" title="Contact" subTitle="Contact me" />
           <HomeMainBanner pageNumber={"04"} />
         </HomeContent>
-
-        {/* <Profile /> */}
-        {/* <About /> */}
       </div>
       <ScrollDown />
       <BlackCover />
