@@ -20,23 +20,11 @@ export default function Home() {
   const [touchStartClientY, setTouchStartClientY] = useState<number>(undefined);
   const [touchEndClientY, setTouchEndClientY] = useState<number>(undefined);
 
-  const onWheel = (e) => {
-    e.deltaY > 0 ? console.info("Down") : console.info("Up");
-    scrollUpOrDownOnScroll(e.deltaY > 0);
-  };
-
-  const onTouchStart = (e) => {
-    setTouchStartClientY(e.changedTouches[0].clientY);
-  };
-
-  const onTouchEnd = (e) => {
-    setTouchEndClientY(e.changedTouches[0].clientY);
-  };
-
   const scrollUpOrDownOnScroll = (isDown: boolean) => {
     if (isDetailPage()) {
       return;
     }
+    isDown ? console.info("Down") : console.info("Up");
     setTouchStartClientY(undefined);
     setTouchEndClientY(undefined);
     const section = document.getElementById(HOME_CONTAINER_ID);
@@ -64,6 +52,12 @@ export default function Home() {
     navigate(`/#${idList[targetPageIndex]}`);
   };
 
+  const onWheel = (e) => scrollUpOrDownOnScroll(e.deltaY > 0);
+
+  const onTouchStart = (e) => setTouchStartClientY(e.changedTouches[0].clientY);
+
+  const onTouchEnd = (e) => setTouchEndClientY(e.changedTouches[0].clientY);
+
   const isDetailPage = () => {
     const pathname = location.pathname;
     if (pathname !== "/") {
@@ -72,8 +66,35 @@ export default function Home() {
     return false;
   };
 
+  async function scrollByY(endY, time) {
+    const detailDiv = document.getElementById(HOME_CONTAINER_ID);
+    const startY = detailDiv.scrollTop;
+    const startTime = performance.now();
+    const endTime = startTime + time;
+    const distance = startY - endY;
+    let currentY = startY;
+
+    while (performance.now() < endTime) {
+      const progress = (performance.now() - startTime) / time;
+      currentY = startY - progress * distance;
+      detailDiv.scrollTo(0, currentY);
+      // wait for the next frame
+      await new Promise(requestAnimationFrame);
+    }
+    detailDiv.scrollTo(0, endY);
+    await new Promise((res) => setTimeout(res, 100));
+  }
+
   useEffect(() => {
-    const section = document.getElementById(location.hash.replace("#", ""));
+    const hash = location.hash.replace("#", "");
+    const pathname = location.pathname.replace("/", "");
+    let section: HTMLElement;
+    if (hash) {
+      section = document.getElementById(hash);
+    } else if (pathname) {
+      section = document.getElementById(pathname);
+    }
+    // scrollByY(section.offsetTop, 1000);
     section && section.scrollIntoView({ behavior: "smooth" });
   }, [location]);
 
