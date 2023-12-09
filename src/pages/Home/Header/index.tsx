@@ -76,17 +76,17 @@ export default function Header() {
 
       <div className={`${styles.overlay} ${openNav && styles.active}`}>
         <div className={styles.overlayContent}>
-          <a href="#home">
-            Home <span className={styles.lineThrough} />
+          <a onClick={() => setOpenNav(false)} href="/#home">
+            <span className={`${styles.linkText} ${openNav ? styles.active : ""}`}>Home</span> <span className={styles.lineThrough} />
           </a>
-          <a href="#profile">
-            Profile <span className={styles.lineThrough} />
+          <a onClick={() => setOpenNav(false)} href="/#profile">
+            <span className={`${styles.linkText} ${openNav ? styles.active : ""}`}>Profile</span> <span className={styles.lineThrough} />
           </a>
-          <a href="#about">
-            About <span className={styles.lineThrough} />
+          <a onClick={() => setOpenNav(false)} href="/#about">
+            <span className={`${styles.linkText} ${openNav ? styles.active : ""}`}>About</span> <span className={styles.lineThrough} />
           </a>
-          <a href="#contact">
-            Contact <span className={styles.lineThrough} />
+          <a onClick={() => setOpenNav(false)} href="/#contact">
+            <span className={`${styles.linkText} ${openNav ? styles.active : ""}`}>Contact</span> <span className={styles.lineThrough} />
           </a>
           <div className={styles.socialGroup}>
             <a href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0/" target="_blank" className={styles.brandIcon}>

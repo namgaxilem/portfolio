@@ -136,16 +136,34 @@
     flex-direction: column;
 
     a {
-      font-size: 90px;
+      height: 90px;
       text-decoration: none;
       color: white;
       position: relative;
       font-weight: 600;
+      overflow-y: hidden;
 
       @include Responsive(SM) {
-        font-size: 80px;
         font-weight: 500;
-        font-size: 40px;
+        height: 60px;
+      }
+
+      .linkText {
+        transition: 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s;
+        transition-delay: 0.6s;
+        transform: translateY(50%);
+        height: 100%;
+        font-size: 70px;
+        display: flex;
+        align-items: center;
+
+        @include Responsive(SM) {
+          font-size: 40px;
+        }
+
+        &.active {
+          transform: translateY(0%);
+        }
       }
 
       .lineThrough {
