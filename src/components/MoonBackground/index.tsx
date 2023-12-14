@@ -1,33 +1,119 @@
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
-const MOON_COLOR = "#434F5D";
+const MOON_COLOR = "#505052";
+
+const moonConfigs = [
+  {
+    r: 60,
+    fillOpacity: 0.15,
+    cx: "70%",
+    cy: "50%",
+  },
+  {
+    r: 54,
+    fillOpacity: 0.2,
+    cx: "70%",
+    cy: "50%",
+  },
+  {
+    r: 48,
+    fillOpacity: 0.25,
+    cx: "70%",
+    cy: "50%",
+  },
+  {
+    r: 42,
+    fillOpacity: 0.3,
+    cx: "70%",
+    cy: "50%",
+  },
+  {
+    r: 36,
+    fillOpacity: 0.35,
+    cx: "70%",
+    cy: "50%",
+  },
+  {
+    r: 30,
+    fillOpacity: 0.4,
+    cx: "70%",
+    cy: "50%",
+  },
+];
+
+const moonConfigsSM = [
+  {
+    r: 80,
+    fillOpacity: 0.15,
+    cx: "50%",
+    cy: "25%",
+  },
+  {
+    r: 70,
+    fillOpacity: 0.2,
+    cx: "50%",
+    cy: "25%",
+  },
+  {
+    r: 60,
+    fillOpacity: 0.25,
+    cx: "50%",
+    cy: "25%",
+  },
+  {
+    r: 50,
+    fillOpacity: 0.3,
+    cx: "50%",
+    cy: "25%",
+  },
+  {
+    r: 40,
+    fillOpacity: 0.35,
+    cx: "50%",
+    cy: "25%",
+  },
+  {
+    r: 30,
+    fillOpacity: 0.4,
+    cx: "50%",
+    cy: "25%",
+  },
+];
+
+const dotStars = () => {
+  return [...Array(25)].map(() => <circle cx={`${Math.random() * 100}%`} cy={`${Math.random() * 100}%`} r="0.2" fill="white" />);
+};
 
 export default function MoonBackground() {
-  const location = useLocation();
+  const [isSMScreen, setIsSMScreen] = useState(false);
+  const [stars] = useState(dotStars());
 
-  const isShowScrollDown = () => {
-    if ((location.pathname === "/" && !["#profile", "#about", "#contact"].includes(location.hash)) || location.pathname !== "/") {
-      return true;
+  useEffect(() => {
+    function handleScreenResize() {
+      if (window.screen.width <= 768) {
+        setIsSMScreen(true);
+      } else {
+        setIsSMScreen(false);
+      }
     }
-    return false;
-  };
+
+    window.addEventListener("resize", handleScreenResize);
+
+    return () => {
+      window.removeEventListener("resize", handleScreenResize);
+    };
+  }, []);
 
   return (
     <>
       <div className={styles.moonContainer}>
         <svg viewBox="0 0 100 100" width={"auto"} height={"auto"}>
-          <circle cx="50%" cy="50%" r="50" fill={MOON_COLOR} style={{ fillOpacity: 0.05 }} />
+          {isSMScreen
+            ? moonConfigsSM.map((e) => <circle cx={e.cx} cy={e.cy} r={e.r} fill={MOON_COLOR} style={{ fillOpacity: e.fillOpacity }} />)
+            : moonConfigs.map((e) => <circle cx={e.cx} cy={e.cy} r={e.r} fill={MOON_COLOR} style={{ fillOpacity: e.fillOpacity }} />)}
 
-          <circle cx="50%" cy="50%" r="45" fill={MOON_COLOR} style={{ fillOpacity: 0.15 }} />
-
-          <circle cx="50%" cy="50%" r="40" fill={MOON_COLOR} style={{ fillOpacity: 0.25 }} />
-
-          <circle cx="50%" cy="50%" r="35" fill={MOON_COLOR} style={{ fillOpacity: 0.35 }} />
-
-          <circle cx="50%" cy="50%" r="30" fill={MOON_COLOR} style={{ fillOpacity: 0.45 }} />
-
-          <circle cx="50%" cy="50%" r="25" fill={MOON_COLOR} style={{ fillOpacity: 0.55 }} />
+          {...stars}
         </svg>
       </div>
     </>

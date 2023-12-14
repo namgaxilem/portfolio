@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import INSTAGRAM_ICON from "@/assets/instagram-icon.png";
 import FACEBOOK_ICON from "@/assets/facebook-icon.png";
@@ -9,6 +9,7 @@ export default function Header() {
   const [openNav, setOpenNav] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const [headerColorChange, setHeaderColorChange] = useState(false);
 
   const isDetailPage = () => {
     const pathname = location.pathname.replace("/", "");
@@ -38,14 +39,34 @@ export default function Header() {
   }
 
   const goBack = async () => {
-    await scrollByY(0, 500);
+    const detailDiv = document.getElementById(location.pathname.replace("/", ""));
+    if (detailDiv.scrollTop !== 0) {
+      await scrollByY(0, 500);
+    }
     const hashToGo = location.pathname.replace("/", "");
     navigate(`/#${hashToGo}`);
   };
 
+  useEffect(() => {
+    function handleScroll() {
+      const detailDiv = window.document.getElementById(location.pathname.replace("/", ""));
+      if (detailDiv.scrollTop >= window.screen.height) {
+        setHeaderColorChange(true);
+      } else {
+        setHeaderColorChange(false);
+      }
+    }
+    const detailDiv = window.document.getElementById(location.pathname.replace("/", ""));
+    detailDiv && detailDiv.addEventListener("scroll", handleScroll);
+
+    return () => {
+      detailDiv && detailDiv.removeEventListener("scroll", handleScroll);
+    };
+  }, [location]);
+
   return (
     <>
-      <header className={styles.headerContainer}>
+      <header className={`${styles.headerContainer} ${headerColorChange ? styles.blackVersion : ""}`}>
         <a className={styles.myName}>Nam Nguyễn</a>
         <div className={styles.linkGroup}>
           <a href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0/" target="_blank" className={styles.brandIcon}>
@@ -59,15 +80,15 @@ export default function Header() {
           </a>
 
           <div className={styles.hamburgerLines} onClick={() => setOpenNav(!openNav)}>
-            <span className={`${styles.line} ${styles.line1} ${openNav && styles.active}`}></span>
-            <span className={`${styles.line} ${styles.line2} ${openNav && styles.active}`}></span>
+            <span className={`${styles.line} ${styles.line1} ${headerColorChange ? styles.blackVersion : ""} ${openNav && styles.active}`}></span>
+            <span className={`${styles.line} ${styles.line2} ${headerColorChange ? styles.blackVersion : ""} ${openNav && styles.active}`}></span>
           </div>
         </div>
       </header>
 
       <span className={`${styles.backArrow} ${isDetailPage() ? "" : styles.hide}`} onClick={goBack}>
         <svg className={` ${isDetailPage() ? "" : styles.hide}`} xmlns="http://www.w3.org/2000/svg" width="100%" height="34" viewBox="0 0 67 34">
-          <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" transform="translate(2 1)">
+          <g fill="none" fill-rule="evenodd" stroke={`${headerColorChange ? "black" : "white"}`} stroke-linecap="round" transform="translate(2 1)">
             <path stroke-width="2" d="M0,15.5533333 L64,15.5533333"></path>
             <polyline stroke-width="2" points="15.556 0 0 15.556 15.556 31.111"></polyline>
           </g>
