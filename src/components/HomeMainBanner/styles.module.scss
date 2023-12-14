@@ -7,11 +7,15 @@
   align-items: flex-start;
   height: 60vh;
   width: 50vw;
-  background-color: peru;
+  background-color: #1e2544;
   z-index: 1;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.8s;
+
+  @include Responsive(MD) {
+    right: 70px;
+  }
 
   @include Responsive(SM) {
     width: 80vw;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
+const MOON_ID = "moonContainer";
 const MOON_COLOR = "#505052";
 
 const moonConfigs = [
@@ -88,8 +89,13 @@ const dotStars = () => {
 export default function MoonBackground() {
   const [isSMScreen, setIsSMScreen] = useState(false);
   const [stars] = useState(dotStars());
+  const [moonPosition, setMoonPosition] = useState({
+    top: "auto",
+    left: "auto",
+  });
 
   useEffect(() => {
+    const moonCircle = document.getElementById(MOON_ID).firstElementChild.firstChild as SVGCircleElement;
     function handleScreenResize() {
       if (window.screen.width <= 768) {
         setIsSMScreen(true);
@@ -98,16 +104,31 @@ export default function MoonBackground() {
       }
     }
 
+    function handleMouseMove(e) {
+      console.log(moonCircle.getBoundingClientRect());
+      const screenWidth = window.screen.width;
+      const screenHeight = window.screen.height;
+      // setMoonPosition({ left: e.x, top: e.y });
+    }
+
+    function handleMouseOut(e) {
+      setMoonPosition({ left: "auto", top: "auto" });
+    }
+
     window.addEventListener("resize", handleScreenResize);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseout", handleMouseOut);
 
     return () => {
       window.removeEventListener("resize", handleScreenResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseout", handleMouseOut);
     };
   }, []);
 
   return (
     <>
-      <div className={styles.moonContainer}>
+      <div id={MOON_ID} className={styles.moonContainer} style={{ top: moonPosition.top, left: moonPosition.left }}>
         <svg viewBox="0 0 100 100" width={"auto"} height={"auto"}>
           {isSMScreen
             ? moonConfigsSM.map((e) => <circle cx={e.cx} cy={e.cy} r={e.r} fill={MOON_COLOR} style={{ fillOpacity: e.fillOpacity }} />)
