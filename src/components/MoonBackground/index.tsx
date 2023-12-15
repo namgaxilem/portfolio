@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
 const MOON_ID = "moonContainer";
@@ -93,6 +93,10 @@ export default function MoonBackground() {
     top: "auto",
     left: "auto",
   });
+  const [initMoonPos, setInitMoonPos] = useState({
+    top: "auto",
+    left: "auto",
+  })
 
   useEffect(() => {
     const moonCircle = document.getElementById(MOON_ID).firstElementChild.firstChild as SVGCircleElement;
@@ -124,6 +128,11 @@ export default function MoonBackground() {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseout", handleMouseOut);
     };
+  }, []);
+
+  useLayoutEffect(() => {
+    const moonCircle = document.getElementById(MOON_ID).firstElementChild.firstChild as SVGCircleElement;
+
   }, []);
 
   return (
