@@ -1,7 +1,9 @@
 .moonContainer {
   position: absolute;
-  right: 0;
+  left: 0;
+  top: 0;
   height: 100%;
   width: 100%;
-  overflow: visible
+  // overflow: visible;
+  // transition: all 0.5s;
 }
