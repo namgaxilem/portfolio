@@ -110,21 +110,21 @@ export default function Home() {
             title="Nam Nguyen"
             subTitle="fullstack developer / &#13;&#10; web engineer"
           />
-          {/* <HomeMainBanner pageNumber={"01"} /> */}
+          <HomeMainBanner pageNumber={"01"} />
         </HomeContent>
         <HomeContent id="profile">
           <HomeMainTitle idAnchorPage="profile" title="My Profile" subTitle="Check out my projects here" buttonTxt="Show me more" />
-          {/* <HomeMainBanner pageNumber={"02"} /> */}
+          <HomeMainBanner pageNumber={"02"} />
           <Profile />
         </HomeContent>
         <HomeContent id="about">
           <HomeMainTitle idAnchorPage="about" title="About Me" subTitle="I love coding and making things on the web" buttonTxt="Show me more" />
-          {/* <HomeMainBanner pageNumber={"03"} /> */}
+          <HomeMainBanner pageNumber={"03"} />
           <About />
         </HomeContent>
         <HomeContent id="contact">
           <HomeMainTitle idAnchorPage="contact" title="Contact" subTitle="Contact me" />
-          {/* <HomeMainBanner pageNumber={"04"} /> */}
+          <HomeMainBanner pageNumber={"04"} />
         </HomeContent>
       </div>
       <ScrollDown />

@@ -1,0 +1,16 @@
+.detailContainer {
+  width: 100%;
+  display: flex;
+
+  @include Responsive(SM) {
+    flex-direction: column;
+  }
+
+  .title {
+    flex: 1;
+  }
+
+  .detail {
+    flex: 2;
+  }
+}
