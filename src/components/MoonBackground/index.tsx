@@ -8,37 +8,37 @@ const moonConfigs = [
   {
     r: 50,
     fillOpacity: 0.15,
-    cx: "70%",
+    cx: "50%",
     cy: "50%",
   },
   {
     r: 44,
     fillOpacity: 0.2,
-    cx: "70%",
+    cx: "50%",
     cy: "50%",
   },
   {
     r: 38,
     fillOpacity: 0.25,
-    cx: "70%",
+    cx: "50%",
     cy: "50%",
   },
   {
     r: 32,
     fillOpacity: 0.3,
-    cx: "70%",
+    cx: "50%",
     cy: "50%",
   },
   {
     r: 26,
     fillOpacity: 0.35,
-    cx: "70%",
+    cx: "50%",
     cy: "50%",
   },
   {
     r: 20,
     fillOpacity: 0.4,
-    cx: "70%",
+    cx: "50%",
     cy: "50%",
   },
 ];
@@ -101,13 +101,13 @@ export default function MoonBackground() {
     }
 
     function handleMouseMove(e) {
-      let moonContainer = document.getElementById(MOON_ID);
+      const moonContainer = document.getElementById(MOON_ID);
       const centerOfMoonX = initMoonPos.right - initMoonPos.left;
       const centerOfMoonY = window.screen.height / 2;
 
       const distanceX = centerOfMoonX - e.x;
       const distanceY = centerOfMoonY - e.y;
-      let newPosition = { left: "0px", top: "0px" };
+      const newPosition = { left: "0px", top: "0px" };
       if (distanceX !== 0) {
         newPosition.left = `${((centerOfMoonX - e.x) / centerOfMoonX) * 100}px`;
       } else {

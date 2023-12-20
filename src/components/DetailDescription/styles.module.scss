@@ -5,12 +5,33 @@
   @include Responsive(SM) {
     flex-direction: column;
   }
+}
 
-  .title {
-    flex: 1;
+.titleContainer {
+  display: flex;
+  flex: 1;
+
+  .titleNumber {
+    display: flex;
+    align-items: center;
+    color: red;
+
+    &::before {
+      content: "";
+      width: 50px;
+      height: 2px;
+      margin-right: 10px;
+      background-color: black;
+    }
   }
 
-  .detail {
-    flex: 2;
+  .titleTxt {
+    align-self: center;
+    font-size: 20px;
+    margin-left: 2em;
   }
+}
+
+.detail {
+  flex: 2;
 }

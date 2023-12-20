@@ -3,13 +3,16 @@ import styles from "./styles.module.scss";
 interface Props {
   titleNumber?: string;
   title?: string;
-  detail?: React.ReactNode;
+  children?: React.ReactNode;
 }
-export default function DetailDescription({ titleNumber, title, detail }: Props) {
+export default function DetailDescription({ titleNumber, title, children }: Props) {
   return (
     <div className={styles.detailContainer}>
-      <div className={styles.title}></div>
-      <div className={styles.detail}>{detail}</div>
+      <div className={styles.titleContainer}>
+        <div className={styles.titleNumber}>{titleNumber}</div>
+        <div className={styles.titleTxt}>{title}</div>
+      </div>
+      <div className={styles.detail}>{children}</div>
     </div>
   );
 }
