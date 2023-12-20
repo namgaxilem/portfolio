@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
 import styles from "./styles.module.scss";
+import DetailDescription from "@/components/DetailDescription";
+import DetailFooter from "@/components/DetailFooter";
 
 export default function Profile() {
   const location = useLocation();
@@ -13,9 +15,12 @@ export default function Profile() {
 
   return (
     <main className={`${styles.detailContainer} ${isDetailPage() ? styles.show : ""}`}>
-      {[...Array(100)].map((e) => (
-        <div key={e}>e</div>
-      ))}
+      <div>
+        <DetailDescription titleNumber={"01"} title={"BRIEF ABOUT ME"}>
+          Some asdhaksjdhaisudal
+        </DetailDescription>
+        <DetailFooter />
+      </div>
     </main>
   );
 }
