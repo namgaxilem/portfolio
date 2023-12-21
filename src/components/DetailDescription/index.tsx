@@ -7,7 +7,7 @@ interface Props {
 }
 export default function DetailDescription({ titleNumber, title, children }: Props) {
   return (
-    <div className={styles.detailContainer}>
+    <div className={styles.detailDescription}>
       <div className={styles.titleContainer}>
         <div className={styles.titleNumber}>{titleNumber}</div>
         <div className={styles.titleTxt}>{title}</div>

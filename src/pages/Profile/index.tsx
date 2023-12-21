@@ -15,12 +15,37 @@ export default function Profile() {
 
   return (
     <main className={`${styles.detailContainer} ${isDetailPage() ? styles.show : ""}`}>
-      <div>
-        <DetailDescription titleNumber={"01"} title={"BRIEF ABOUT ME"}>
-          Some asdhaksjdhaisudal
-        </DetailDescription>
-        <DetailFooter />
-      </div>
+      <br />
+      <br />
+      <br />
+      <DetailDescription titleNumber={"01"} title={"BRIEF ABOUT ME"}>
+        Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
+        asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
+        asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
+        asdhaksjdhaisudal
+      </DetailDescription>
+      <br />
+      <br />
+      <br />
+      <DetailDescription titleNumber={"02"} title={"PASSION"}>
+        Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
+        asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
+        asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
+        asdhaksjdhaisudal
+      </DetailDescription>
+      <br />
+      <br />
+      <br />
+      <DetailDescription titleNumber={"03"} title={"SKILL SET"}>
+        Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
+        asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
+        asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
+        asdhaksjdhaisudal
+      </DetailDescription>
+      <br />
+      <br />
+      <br />
+      <DetailFooter />
     </main>
   );
 }

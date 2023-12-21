@@ -9,6 +9,7 @@ $pagePadding: 45px;
   transition: all 1.2s;
   transition-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
   bottom: -100%;
+  z-index: 80;
 
   &.left {
     left: $pagePadding;
