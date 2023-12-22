@@ -30,10 +30,12 @@
 
   .titleTxt {
     font-size: 20px;
-    text-align: center;
     flex-grow: 1;
+    margin-left: 40px;
 
     @include Responsive(SM) {
+      text-align: center;
+      margin: 0;
       position: absolute;
       width: 100%;
     }
@@ -41,5 +43,11 @@
 }
 
 .detail {
-  flex: 2;
+  flex: 1.2;
+  padding-right: 40px;
+  padding-left: 40px;
+
+  @include Responsive(SM) {
+    margin-top: 40px;
+  }
 }

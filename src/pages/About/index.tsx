@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import styles from "./styles.module.scss";
 import DetailDescription from "@/components/DetailDescription";
 import DetailFooter from "@/components/DetailFooter";
+import ABOUT_IMAGE from "@/assets/about_detail_image.jpg";
 
 export default function About() {
   const location = useLocation();
@@ -19,10 +20,26 @@ export default function About() {
       <br />
       <br />
       <DetailDescription titleNumber={"01"} title={"BRIEF ABOUT ME"}>
-        Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
-        asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
-        asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some
-        asdhaksjdhaisudal
+        <div
+          style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+          }}
+        >
+          <span>
+            Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal
+            Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal
+            Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal Some asdhaksjdhaisudal
+            Some asdhaksjdhaisudal
+          </span>
+          <img
+            style={{
+              maxWidth: "100%",
+              maxHeight: "100%",
+            }}
+            src={ABOUT_IMAGE}
+          />
+        </div>
       </DetailDescription>
       <br />
       <br />
