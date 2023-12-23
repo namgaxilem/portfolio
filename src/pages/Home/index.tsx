@@ -1,6 +1,6 @@
 import BlackCover from "@/components/BlackCover";
 import MoonBackground from "@/components/MoonBackground";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import HomeContent from "../../components/HomeContent";
 import HomeMainBanner from "../../components/HomeMainBanner";
@@ -19,8 +19,17 @@ export default function Home() {
   const navigate = useNavigate();
   const [touchStartClientY, setTouchStartClientY] = useState<number>(undefined);
   const [touchEndClientY, setTouchEndClientY] = useState<number>(undefined);
+  const isNavigatingRef = useRef(false);
 
   const scrollUpOrDownOnScroll = (isDown: boolean) => {
+    if (isNavigatingRef.current) {
+      return;
+    }
+    isNavigatingRef.current = true;
+    setTimeout(() => {
+      isNavigatingRef.current = false;
+    }, 1200);
+
     if (isDetailPage()) {
       return;
     }

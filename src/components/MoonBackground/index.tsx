@@ -43,45 +43,6 @@ const moonConfigs = [
   },
 ];
 
-const moonConfigsSM = [
-  {
-    r: 50,
-    fillOpacity: 0.15,
-    cx: "50%",
-    cy: "20%",
-  },
-  {
-    r: 44,
-    fillOpacity: 0.2,
-    cx: "50%",
-    cy: "20%",
-  },
-  {
-    r: 38,
-    fillOpacity: 0.25,
-    cx: "50%",
-    cy: "20%",
-  },
-  {
-    r: 32,
-    fillOpacity: 0.3,
-    cx: "50%",
-    cy: "20%",
-  },
-  {
-    r: 26,
-    fillOpacity: 0.35,
-    cx: "50%",
-    cy: "20%",
-  },
-  {
-    r: 20,
-    fillOpacity: 0.4,
-    cx: "50%",
-    cy: "20%",
-  },
-];
-
 const dotStars = () => {
   return [...Array(25)].map(() => <circle cx={`${Math.random() * 100}%`} cy={`${Math.random() * 100}%`} r="0.2" fill="white" />);
 };
@@ -101,10 +62,11 @@ export default function MoonBackground() {
     }
 
     function handleMouseMove(e) {
+      console.log(e);
       const moonContainer = document.getElementById(MOON_ID);
       const centerOfMoonX = initMoonPos.right - initMoonPos.left;
       const centerOfMoonY = window.screen.height / 2;
-
+      // const centerOfMoonY = initMoonPos.bottom - initMoonPos.top;
       const distanceX = centerOfMoonX - e.x;
       const distanceY = centerOfMoonY - e.y;
       const newPosition = { left: "0px", top: "0px" };
@@ -142,16 +104,15 @@ export default function MoonBackground() {
     return () => {
       window.removeEventListener("resize", handleScreenResize);
     };
-  }, []);
+  }, [isSMScreen]);
 
   return (
     <>
       <div id={MOON_ID} className={styles.moonContainer}>
-        <svg viewBox={`0 0 100 100`} width={"100%"} height={"100%"}>
-          {isSMScreen
-            ? moonConfigsSM.map((e) => <circle cx={e.cx} cy={e.cy} r={e.r} fill={MOON_COLOR} style={{ fillOpacity: e.fillOpacity }} />)
-            : moonConfigs.map((e) => <circle cx={e.cx} cy={e.cy} r={e.r} fill={MOON_COLOR} style={{ fillOpacity: e.fillOpacity }} />)}
-
+        <svg width="100%" height="100%" viewBox="0 0 100 100">
+          {moonConfigs.map((e) => (
+            <circle cx={e.cx} cy={e.cy} r={e.r} fill={MOON_COLOR} style={{ fillOpacity: e.fillOpacity }} />
+          ))}
           {...stars}
         </svg>
       </div>
