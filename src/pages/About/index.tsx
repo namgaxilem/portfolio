@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import styles from "./styles.module.scss";
 import DetailDescription from "@/components/DetailDescription";
 import DetailFooter from "@/components/DetailFooter";
-import ABOUT_IMAGE from "@/assets/about_detail_image.jpg";
+import ABOUT_IMAGE from "@/assets/about_page/about_detail_image.jpg";
 
 export default function About() {
   const location = useLocation();

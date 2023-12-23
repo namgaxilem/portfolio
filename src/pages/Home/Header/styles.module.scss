@@ -37,13 +37,21 @@
     text-decoration: none;
     color: white;
     font-size: 25px;
+    display: flex;
+    align-items: center;
 
     @include Responsive(SM) {
       display: none;
     }
 
-    img {
-      height: 100%;
+    i {
+      transition: color 0.4s linear;
+    }
+
+    &.blackVersion {
+      i {
+        color: black;
+      }
     }
 
     &:hover {

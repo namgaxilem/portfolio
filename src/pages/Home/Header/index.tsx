@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-import styles from "./styles.module.scss";
-import INSTAGRAM_ICON from "@/assets/instagram-icon.png";
-import FACEBOOK_ICON from "@/assets/facebook-icon.png";
-import LINKEDIN_ICON from "@/assets/linkedin-icon.png";
 import { useLocation, useNavigate } from "react-router-dom";
+import styles from "./styles.module.scss";
 
 export default function Header() {
   const [openNav, setOpenNav] = useState(false);
@@ -66,22 +63,37 @@ export default function Header() {
 
   return (
     <>
-      <header className={`${styles.headerContainer} ${headerColorChange ? styles.blackVersion : ""}`}>
+      <header className={`${styles.headerContainer} ${headerColorChange && !openNav ? styles.blackVersion : ""}`}>
         <a className={styles.myName}>Nam Nguyễn</a>
         <div className={styles.linkGroup}>
-          <a href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0/" target="_blank" className={styles.brandIcon}>
-            <img src={LINKEDIN_ICON} />
+          <a
+            href="https://www.facebook.com/namgaxilem"
+            target="_blank"
+            className={`${styles.brandIcon} ${headerColorChange && !openNav ? styles.blackVersion : ""}`}
+          >
+            <i className="fa-brands fa-facebook"></i>
           </a>
-          <a href="https://www.instagram.com/namnungniuz/" target="_blank" className={styles.brandIcon}>
-            <img src={INSTAGRAM_ICON} />
+          <a
+            href="https://github.com/namgaxilem"
+            target="_blank"
+            className={`${styles.brandIcon} ${headerColorChange && !openNav ? styles.blackVersion : ""}`}
+          >
+            <i className="fa-brands fa-github"></i>
           </a>
-          <a href="https://www.facebook.com/namgaxilem/" target="_blank" className={styles.brandIcon}>
-            <img src={FACEBOOK_ICON} />
+          <a
+            href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0"
+            target="_blank"
+            className={`${styles.brandIcon} ${headerColorChange && !openNav ? styles.blackVersion : ""}`}
+          >
+            <i className="fa-brands fa-linkedin-in"></i>
           </a>
-
           <div className={styles.hamburgerLines} onClick={() => setOpenNav(!openNav)}>
-            <span className={`${styles.line} ${styles.line1} ${headerColorChange ? styles.blackVersion : ""} ${openNav && styles.active}`}></span>
-            <span className={`${styles.line} ${styles.line2} ${headerColorChange ? styles.blackVersion : ""} ${openNav && styles.active}`}></span>
+            <span
+              className={`${styles.line} ${styles.line1} ${headerColorChange && !openNav ? styles.blackVersion : ""} ${openNav && styles.active}`}
+            ></span>
+            <span
+              className={`${styles.line} ${styles.line2} ${headerColorChange && !openNav ? styles.blackVersion : ""} ${openNav && styles.active}`}
+            ></span>
           </div>
         </div>
       </header>
@@ -92,7 +104,7 @@ export default function Header() {
             fill="none"
             fill-rule="evenodd"
             className={styles.gEle}
-            stroke={`${headerColorChange ? "black" : "white"}`}
+            stroke={`${headerColorChange && !openNav ? "black" : "white"}`}
             stroke-linecap="round"
             transform="translate(2 1)"
           >
@@ -117,14 +129,14 @@ export default function Header() {
             <span className={`${styles.linkText} ${openNav ? styles.active : ""}`}>Contact</span> <span className={styles.lineThrough} />
           </a>
           <div className={styles.socialGroup}>
-            <a href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0/" target="_blank" className={styles.brandIcon}>
-              <img src={LINKEDIN_ICON} />
+            <a href="https://www.facebook.com/namgaxilem" target="_blank" className={styles.brandIcon}>
+              <i className="fa-brands fa-facebook"></i>
             </a>
-            <a href="https://www.instagram.com/namnungniuz/" target="_blank" className={styles.brandIcon}>
-              <img src={INSTAGRAM_ICON} />
+            <a href="https://github.com/namgaxilem" target="_blank" className={styles.brandIcon}>
+              <i className="fa-brands fa-github"></i>
             </a>
-            <a href="https://www.facebook.com/namgaxilem/" target="_blank" className={styles.brandIcon}>
-              <img src={FACEBOOK_ICON} />
+            <a href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0" target="_blank" className={styles.brandIcon}>
+              <i className="fa-brands fa-linkedin-in"></i>{" "}
             </a>
           </div>
         </div>
