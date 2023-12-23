@@ -74,10 +74,6 @@
       width: 100%;
       border-radius: 10px;
       background-color: white;
-      transition: background-color 0.4s;
-      -webkit-transition: background-color 0.4s;
-      -o-transition: background-color 0.4s;
-      -moz-transition: background-color 0.4s;
 
       &.blackVersion {
         background-color: black;
@@ -86,7 +82,7 @@
 
     .line1 {
       transform-origin: 0% 0%;
-      transition: transform 0.3s ease-in-out;
+      transition: background-color 0.4s linear, transform 0.3s ease-in-out;
 
       &.active {
         transform: rotate(30deg);
@@ -95,7 +91,7 @@
 
     .line2 {
       transform-origin: 0% 100%;
-      transition: transform 0.3s ease-in-out;
+      transition: background-color 0.4s linear, transform 0.3s ease-in-out;
 
       &.active {
         transform: rotate(-30deg);
@@ -122,6 +118,10 @@
   svg {
     position: relative;
     transition: all 0.5s;
+
+    .gEle {
+      transition: stroke 0.4s linear;
+    }
 
     &.hide {
       transform: translateX(-100%);
