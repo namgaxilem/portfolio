@@ -62,26 +62,25 @@ export default function MoonBackground() {
     }
 
     function handleMouseMove(e) {
-      console.log(e);
       const moonContainer = document.getElementById(MOON_ID);
-      const centerOfMoonX = initMoonPos.right - initMoonPos.left;
-      const centerOfMoonY = window.screen.height / 2;
-      // const centerOfMoonY = initMoonPos.bottom - initMoonPos.top;
+      const centerOfMoonX = (initMoonPos.right - initMoonPos.left) / 2;
+      const centerOfMoonY = (initMoonPos.bottom - initMoonPos.top) / 2;
       const distanceX = centerOfMoonX - e.x;
       const distanceY = centerOfMoonY - e.y;
-      const newPosition = { left: "0px", top: "0px" };
+      const newPosition = { left: `${initMoonPos.left}px`, top: `${initMoonPos.top}px` };
       if (distanceX !== 0) {
-        newPosition.left = `${((centerOfMoonX - e.x) / centerOfMoonX) * 100}px`;
+        newPosition.left = `${((centerOfMoonX - e.x) / centerOfMoonX) * 60}px`;
       } else {
-        newPosition.left = "0px";
+        newPosition.left = `${initMoonPos.left}px`;
       }
       if (distanceY !== 0) {
-        newPosition.top = `${((centerOfMoonY - e.y) / window.screen.height) * 100}px`;
+        newPosition.top = `${((centerOfMoonY - e.y) / centerOfMoonY) * 60}px`;
       } else {
-        newPosition.top = "0px";
+        newPosition.top = `${initMoonPos.top}px`;
       }
-      moonContainer.style.left = `${newPosition.left}`;
-      moonContainer.style.top = `${newPosition.top}`;
+      // moonContainer.style.left = `${newPosition.left}`;
+      // moonContainer.style.top = `${newPosition.top}`;
+      moonContainer.style.transform = `translate3d(${newPosition.left}, ${newPosition.top}, 0px)`;
     }
 
     handleScreenResize();
@@ -97,9 +96,12 @@ export default function MoonBackground() {
   useLayoutEffect(() => {
     function handleScreenResize() {
       const moonCircleBoundingClient = (document.getElementById(MOON_ID).firstElementChild.firstChild as SVGCircleElement).getBoundingClientRect();
+      console.log("isSMScreen", moonCircleBoundingClient);
       setInitMoonPos(moonCircleBoundingClient);
     }
     handleScreenResize();
+
+    window.addEventListener("resize", handleScreenResize);
 
     return () => {
       window.removeEventListener("resize", handleScreenResize);
