@@ -63,36 +63,36 @@ export default function Header() {
 
   return (
     <>
-      <header className={`${styles.headerContainer} ${headerColorChange && !openNav ? styles.blackVersion : ""}`}>
+      <header className={`${styles.headerContainer} ${headerColorChange && !openNav && isDetailPage() ? styles.blackVersion : ""}`}>
         <a className={styles.myName}>Nam Nguyễn</a>
         <div className={styles.linkGroup}>
           <a
             href="https://www.facebook.com/namgaxilem"
             target="_blank"
-            className={`${styles.brandIcon} ${headerColorChange && !openNav ? styles.blackVersion : ""}`}
+            className={`${styles.brandIcon} ${headerColorChange && !openNav && isDetailPage() ? styles.blackVersion : ""}`}
           >
             <i className="fa-brands fa-facebook"></i>
           </a>
           <a
             href="https://github.com/namgaxilem"
             target="_blank"
-            className={`${styles.brandIcon} ${headerColorChange && !openNav ? styles.blackVersion : ""}`}
+            className={`${styles.brandIcon} ${headerColorChange && !openNav && isDetailPage() ? styles.blackVersion : ""}`}
           >
             <i className="fa-brands fa-github"></i>
           </a>
           <a
             href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-4562b52a0"
             target="_blank"
-            className={`${styles.brandIcon} ${headerColorChange && !openNav ? styles.blackVersion : ""}`}
+            className={`${styles.brandIcon} ${headerColorChange && !openNav && isDetailPage() ? styles.blackVersion : ""}`}
           >
             <i className="fa-brands fa-linkedin-in"></i>
           </a>
           <div className={styles.hamburgerLines} onClick={() => setOpenNav(!openNav)}>
             <span
-              className={`${styles.line} ${styles.line1} ${headerColorChange && !openNav ? styles.blackVersion : ""} ${openNav && styles.active}`}
+              className={`${styles.line} ${styles.line1} ${headerColorChange && !openNav && isDetailPage() ? styles.blackVersion : ""} ${openNav && styles.active}`}
             ></span>
             <span
-              className={`${styles.line} ${styles.line2} ${headerColorChange && !openNav ? styles.blackVersion : ""} ${openNav && styles.active}`}
+              className={`${styles.line} ${styles.line2} ${headerColorChange && !openNav && isDetailPage() ? styles.blackVersion : ""} ${openNav && styles.active}`}
             ></span>
           </div>
         </div>
