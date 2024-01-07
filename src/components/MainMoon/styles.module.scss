@@ -1,0 +1,54 @@
+.mainMoonContainer {
+  position: fixed;
+  left: 20%;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+
+  @include Responsive(SM) {
+    left: 0;
+    top: -20%;
+    height: 140vh;
+    width: 140vw;
+    transform: translate3d(calc((100vw - 140vw) / 2), calc((100vh - 140vh) / 2), 0);
+  }
+}
+
+.mainMoon {
+}
+.mainMoonRun {
+  transform: scale(90%) translate(10%, 30px);
+  animation-name: mainMoonRunKeyFrame;
+  animation-duration: 2.5s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
+}
+@keyframes mainMoonRunKeyFrame {
+  from {
+    transform: scale(90%) translate(10%, 30px);
+  }
+  to {
+    transform: scale(100%) translate(0);
+  }
+}
+
+.title {
+  color: red;
+}
+.titleRun {
+  transform: scale(90%) translate(10%, 30px);
+  animation-name: titleRunKeyFrame;
+  animation-duration: 2.5s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
+}
+@keyframes titleRunKeyFrame {
+  from {
+    transform: scale(90%) translate(10%, 30px);
+  }
+  to {
+    transform: scale(100%) translate(0);
+  }
+}

@@ -1,57 +1,33 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
+import { useLocation } from "react-router-dom";
 
-const MOON_ID = "moonContainer";
-const MOON_COLOR = "#505052";
+const MOON_ID = "mainMoonContainer";
+const MOON_COLOR = "#FFFFFA";
 
-const moonConfigs = [
-  {
-    r: 50,
-    fillOpacity: 0.15,
-    cx: "50%",
-    cy: "50%",
-  },
-  {
-    r: 44,
-    fillOpacity: 0.2,
-    cx: "50%",
-    cy: "50%",
-  },
-  {
-    r: 38,
-    fillOpacity: 0.25,
-    cx: "50%",
-    cy: "50%",
-  },
-  {
-    r: 32,
-    fillOpacity: 0.3,
-    cx: "50%",
-    cy: "50%",
-  },
-  {
-    r: 26,
-    fillOpacity: 0.35,
-    cx: "50%",
-    cy: "50%",
-  },
-  // {
-  //   r: 20,
-  //   fillOpacity: 0.4,
-  //   cx: "50%",
-  //   cy: "50%",
-  // },
-];
+interface Props {
+  pageNumber: string;
+}
 
-const dotStars = () => {
-  return [...Array(25)].map(() => <circle cx={`${Math.random() * 100}%`} cy={`${Math.random() * 100}%`} r="0.2" fill="white" />);
-};
-
-export default function MoonBackground() {
+export default function MainMoon({ pageNumber }: Props) {
   const [isSMScreen, setIsSMScreen] = useState(false);
-  const [stars] = useState(dotStars());
   const [initMoonPos, setInitMoonPos] = useState<DOMRect>();
   const resetMoving = useRef(Math.random());
+
+  const location = useLocation();
+
+  const checkHashChange = () => {
+    const hash = location.hash.replace("#", "");
+    if (
+      (pageNumber === "01" && hash === "home") ||
+      (pageNumber === "02" && hash === "profile") ||
+      (pageNumber === "03" && hash === "about") ||
+      (pageNumber === "04" && hash === "contact")
+    ) {
+      return true;
+    }
+    return false;
+  };
 
   useEffect(() => {
     function handleScreenResize() {
@@ -72,8 +48,8 @@ export default function MoonBackground() {
       }
 
       if (e.pointerType === "mouse") {
-        const centerOfMoonX = (initMoonPos.right - initMoonPos.left) / 2;
-        const centerOfMoonY = (initMoonPos.bottom - initMoonPos.top) / 2;
+        const centerOfMoonX = (initMoonPos.left + initMoonPos.width) / 2;
+        const centerOfMoonY = (initMoonPos.top + initMoonPos.height) / 2;
         const distanceX = centerOfMoonX - e.x;
         const distanceY = centerOfMoonY - e.y;
         const newPosition = { left: `${initMoonPos.left}px`, top: `${initMoonPos.top}px` };
@@ -120,14 +96,12 @@ export default function MoonBackground() {
 
   return (
     <>
-      <div id={MOON_ID} className={styles.moonContainer}>
-        <svg width="100%" height="100%" viewBox="0 0 100 100">
-          {moonConfigs.map((e) => (
-            <circle cx={e.cx} cy={e.cy} r={e.r} fill={MOON_COLOR} style={{ fillOpacity: e.fillOpacity }} />
-          ))}
-          {...stars}
+      <div id={MOON_ID} className={styles.mainMoonContainer}>
+        <svg className={`${styles.mainMoon} ${checkHashChange() ? styles.titleRun : null}`} width="100%" height="100%" viewBox="0 0 100 100">
+          <circle cx={"50%"} cy={"50%"} r={20} fill={MOON_COLOR} style={{ fillOpacity: 1 }} />
         </svg>
       </div>
+      <p className={`${styles.title} ${checkHashChange() ? styles.titleRun : null}`}>Portfolio</p>
     </>
   );
 }

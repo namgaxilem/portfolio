@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { MainHomePageNumberType } from "@/types";
+import MainMoon from "../MainMoon";
 
 interface Props {
   pageNumber: MainHomePageNumberType;
@@ -45,19 +46,23 @@ export default function HomeMainBanner({ pageNumber }: Props) {
 
   return (
     <>
-      <div
-        onClick={onClickBanner}
-        className={`${styles.homeMainBannerContainer} 
-      ${checkHashChange() ? styles.homeMainBannerContainerRun : null} ${isDetailPage() ? styles.homeMainBannerDetailRun : ""}`}
-      >
-        <div className={`${styles.mainBannerCover} ${checkHashChange() ? styles.mainBannerCoverRun : null}`}></div>
-        <div className={`${styles.columnCover} ${checkHashChange() ? styles.columnCoverRun : null}`}></div>
+      {pageNumber !== "01" && (
         <div
-          className={`${styles.pageNumber} ${checkHashChange() ? styles.pageNumberRun : null} ${isDetailPage() ? styles.pageNumberHideRun : null}`}
+          onClick={onClickBanner}
+          className={`${styles.homeMainBannerContainer} 
+      ${checkHashChange() ? styles.homeMainBannerContainerRun : null} ${isDetailPage() ? styles.homeMainBannerDetailRun : ""}`}
         >
-          {pageNumber}
+          <div className={`${styles.mainBannerCover} ${checkHashChange() ? styles.mainBannerCoverRun : null}`}></div>
+          <div className={`${styles.columnCover} ${checkHashChange() ? styles.columnCoverRun : null}`}></div>
+          <div
+            className={`${styles.pageNumber} ${checkHashChange() ? styles.pageNumberRun : null} ${isDetailPage() ? styles.pageNumberHideRun : null}`}
+          >
+            {pageNumber}
+          </div>
         </div>
-      </div>
+      )}
+
+      {pageNumber === "01" && <MainMoon pageNumber="01" />}
     </>
   );
 }
