@@ -15,22 +15,30 @@
 }
 
 .mainMoon {
+  transform: scale(90%) translate(30%, 30px);
+  transition-property: transform;
+  transition-duration: 1s;
 }
 .mainMoonRun {
-  transform: scale(90%) translate(10%, 30px);
-  animation-name: mainMoonRunKeyFrame;
-  animation-duration: 2.5s;
-  animation-delay: 0.2s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
+  transform: scale(100%) translate(0);
+  transition-delay: 0.2s;
 }
-@keyframes mainMoonRunKeyFrame {
-  from {
-    transform: scale(90%) translate(10%, 30px);
-  }
-  to {
-    transform: scale(100%) translate(0);
-  }
+.mainMoonRunRemove {
+  transition-delay: 0s;
+}
+
+.mainMoonCircle {
+  fill-opacity: 0;
+  transition-property: fill-opacity;
+  transition-duration: 0.7s;
+  transition-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
+}
+.mainMoonCircleRun {
+  fill-opacity: 0.9;
+  transition-delay: 0.2s;
+}
+.mainMoonCircleRunRemove {
+  transition-delay: 0s;
 }
 
 .title {

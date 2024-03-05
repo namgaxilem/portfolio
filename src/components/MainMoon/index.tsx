@@ -97,8 +97,14 @@ export default function MainMoon({ pageNumber }: Props) {
   return (
     <>
       <div id={MOON_ID} className={styles.mainMoonContainer}>
-        <svg className={`${styles.mainMoon} ${checkHashChange() ? styles.titleRun : null}`} width="100%" height="100%" viewBox="0 0 100 100">
-          <circle cx={"50%"} cy={"50%"} r={20} fill={MOON_COLOR} style={{ fillOpacity: 1 }} />
+        <svg className={`${styles.mainMoon} ${checkHashChange() ? styles.mainMoonRun : null}`} width="100%" height="100%" viewBox="0 0 100 100">
+          <circle
+            className={`${styles.mainMoonCircle} ${checkHashChange() ? styles.mainMoonCircleRun : styles.mainMoonRunRemove}`}
+            cx={"50%"}
+            cy={"50%"}
+            r={20}
+            fill={MOON_COLOR}
+          />
         </svg>
       </div>
       <p className={`${styles.title} ${checkHashChange() ? styles.titleRun : null}`}>Portfolio</p>
