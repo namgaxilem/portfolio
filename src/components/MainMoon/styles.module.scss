@@ -43,20 +43,38 @@
 
 .title {
   color: red;
+  font-size: 6rem;
+  margin: 0;
+  position: fixed;
+  font-weight: 700;
+  top: 50%;
+  right: 300px;
+  transform: translateY(-50%);
+  opacity: 0;
+
+  transition-property: all;
+  transition-duration: 0.7s;
+  transition-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
+
+  @include Responsive(SM) {
+    top: 30%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) translateY(-30%);
+    font-weight: 500;
+    font-size: 3rem;
+  }
 }
 .titleRun {
-  transform: scale(90%) translate(10%, 30px);
-  animation-name: titleRunKeyFrame;
-  animation-duration: 2.5s;
-  animation-delay: 0.2s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.4, 0.99, 0.4, 0.98);
+  opacity: 0.9;
+  transform: translateY(-50%) translateX(0);
+  transition-delay: 0.2s;
+
+  @include Responsive(SM) {
+    transform: translateY(-50%) translateX(-50%);
+  }
 }
-@keyframes titleRunKeyFrame {
-  from {
-    transform: scale(90%) translate(10%, 30px);
-  }
-  to {
-    transform: scale(100%) translate(0);
-  }
+.titleRunRemove {
+  transform: translateY(-50%) translateX(100%);
+  transition-delay: 0s;
 }

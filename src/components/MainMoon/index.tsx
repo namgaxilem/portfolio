@@ -104,10 +104,32 @@ export default function MainMoon({ pageNumber }: Props) {
             cy={"50%"}
             r={20}
             fill={MOON_COLOR}
-          />
+          ></circle>
+
+          <circle
+            className={`${styles.mainMoonCircle} ${checkHashChange() ? styles.mainMoonCircleRun : styles.mainMoonRunRemove}`}
+            cx={"40%"}
+            cy={"42%"}
+            r={4}
+            fill={"#F8F8F4"}
+          ></circle>
+          <circle
+            className={`${styles.mainMoonCircle} ${checkHashChange() ? styles.mainMoonCircleRun : styles.mainMoonRunRemove}`}
+            cx={"50%"}
+            cy={"38%"}
+            r={3}
+            fill={"#F8F8F4"}
+          ></circle>
+          <circle
+            className={`${styles.mainMoonCircle} ${checkHashChange() ? styles.mainMoonCircleRun : styles.mainMoonRunRemove}`}
+            cx={"51%"}
+            cy={"45%"}
+            r={2}
+            fill={"#F8F8F4"}
+          ></circle>
         </svg>
       </div>
-      <p className={`${styles.title} ${checkHashChange() ? styles.titleRun : null}`}>Portfolio</p>
+      <p className={`${styles.title} ${checkHashChange() ? styles.titleRun : styles.titleRunRemove}`}>Portfolio</p>
     </>
   );
 }
